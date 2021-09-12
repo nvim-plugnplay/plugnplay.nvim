@@ -1,0 +1,9 @@
+{
+    "plugman": {
+        "url": "vhyrro/generic-neovim-plugin-manager",
+        "opt": true,
+        "configuration": {
+            "database": "/some/location"
+        }
+    }
+}

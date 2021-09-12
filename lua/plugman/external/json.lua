@@ -59,11 +59,12 @@ end
 
 local function encode_table(val, stack)
     local res = {}
+    local errors = {}
     stack = stack or {}
 
     -- Circular reference?
     if stack[val] then
-        error("circular reference")
+        table.insert(errors, "found circular reference in " .. stack[val])
     end
 
     stack[val] = true
@@ -91,35 +92,50 @@ local function encode_table(val, stack)
         end
         -- Encode
         for i = 1, length do
-            table.insert(res, encode(val[i], stack))
+            table.insert(res, encode(val[i], stack).data)
         end
         stack[val] = nil
-        return "[" .. table.concat(res, ",") .. "]"
+        return {
+            data = "[" .. table.concat(res, ",") .. "]",
+            err = errors,
+        }
     else
+        local line_number = 1
         -- Treat as an object
         for k, v in pairs(val) do
-            --[[
-      if type(k) ~= "string" then
-        error("invalid table: mixed or invalid key types")
-      end
-	  ]]
-            table.insert(res, encode(k, stack) .. ":" .. encode(v, stack))
+            if type(k) ~= "string" then
+                table.insert(errors, string.format("invalid key type ('%s') found at line %d", type(k), line_number))
+            end
+            table.insert(res, encode(k, stack).data .. ":" .. encode(v, stack).data)
+
+            line_number = line_number + 1
         end
         stack[val] = nil
-        return "{" .. table.concat(res, ",") .. "}"
+        return {
+            data = "{" .. table.concat(res, ",") .. "}",
+            err = errors,
+        }
     end
 end
 
 local function encode_string(val)
-    return '"' .. val:gsub('[%z\1-\31\\"]', escape_char) .. '"'
+    return {
+        data = '"' .. val:gsub('[%z\1-\31\\"]', escape_char) .. '"',
+        err = {},
+    }
 end
 
 local function encode_number(val)
+    local errors = {}
+
     -- Check for NaN, -inf and inf
     if val ~= val or val <= -math.huge or val >= math.huge then
-        error("unexpected number value '" .. tostring(val) .. "'")
+        table.insert(errors, "unexpected number value '" .. tostring(val) .. "'")
     end
-    return tostring(val)
+    return {
+        data = tostring(val),
+        err = errors,
+    }
 end
 
 local type_func_map = {
@@ -134,13 +150,28 @@ encode = function(val, stack)
     local t = type(val)
     local f = type_func_map[t]
     if f then
-        return f(val, stack)
+        local encoded_data = f(val, stack)
+        if t == "boolean" then
+            return {
+                data = encoded_data,
+                err = {},
+            }
+        else
+            return {
+                data = encoded_data.data,
+                err = encoded_data.err,
+            }
+        end
     end
-    error("unexpected type '" .. t .. "'")
+
+    return {
+        data = "",
+        err = { "unexpected type '" .. t .. "'" },
+    }
 end
 
 function json.encode(val)
-    return (encode(val))
+    return encode(val)
 end
 
 -------------------------------------------------------------------------------
@@ -187,7 +218,7 @@ local function decode_error(str, idx, msg)
             col_count = 1
         end
     end
-    error(string.format("%s at line %d col %d", msg, line_count, col_count))
+    return string.format("%s at line %d, col %d", msg, line_count, col_count)
 end
 
 local function codepoint_to_utf8(n)
@@ -202,7 +233,7 @@ local function codepoint_to_utf8(n)
     elseif n <= 0x10ffff then
         return string.char(f(n / 262144) + 240, f(n % 262144 / 4096) + 128, f(n % 4096 / 64) + 128, n % 64 + 128)
     end
-    error(string.format("invalid unicode codepoint '%x'", n))
+    return string.format("invalid unicode codepoint '%x'", n)
 end
 
 local function parse_unicode_escape(s)
@@ -220,12 +251,13 @@ local function parse_string(str, i)
     local res = ""
     local j = i + 1
     local k = j
+    local errors = {}
 
     while j <= #str do
         local x = str:byte(j)
 
         if x < 32 then
-            decode_error(str, j, "control character in string")
+            table.insert(errors, decode_error(str, j, "control character in string"))
         elseif x == 92 then -- `\`: Escape
             res = res .. str:sub(k, j - 1)
             j = j + 1
@@ -233,47 +265,66 @@ local function parse_string(str, i)
             if c == "u" then
                 local hex = str:match("^[dD][89aAbB]%x%x\\u%x%x%x%x", j + 1)
                     or str:match("^%x%x%x%x", j + 1)
-                    or decode_error(str, j - 1, "invalid unicode escape in string")
+                    or table.insert(errors, decode_error(str, j - 1, "invalid unicode escape in string"))
                 res = res .. parse_unicode_escape(hex)
                 j = j + #hex
             else
                 if not escape_chars[c] then
-                    decode_error(str, j - 1, "invalid escape char '" .. c .. "' in string")
+                    table.insert(decode_error(str, j - 1, "invalid escape char '" .. c .. "' in string"))
                 end
                 res = res .. escape_char_map_inv[c]
             end
             k = j + 1
         elseif x == 34 then -- `"`: End of string
             res = res .. str:sub(k, j - 1)
-            return res, j + 1
+            return {
+                data = res,
+                idx = j + 1,
+                err = errors,
+            }
         end
 
         j = j + 1
     end
 
-    decode_error(str, i, "expected closing quote for string")
+    table.insert(errors, decode_error(str, i, "expected closing quote for string"))
+    return {
+        data = "",
+        err = errors,
+    }
 end
 
 local function parse_number(str, i)
     local x = next_char(str, i, delim_chars)
     local s = str:sub(i, x - 1)
     local n = tonumber(s)
+    local errors = {}
     if not n then
-        decode_error(str, i, "invalid number '" .. s .. "'")
+        table.insert(errors, decode_error(str, i, "invalid number '" .. s .. "'"))
     end
-    return n, x
+    return {
+        data = n,
+        idx = x,
+        err = errors,
+    }
 end
 
 local function parse_literal(str, i)
+    local errors = {}
     local x = next_char(str, i, delim_chars)
     local word = str:sub(i, x - 1)
     if not literals[word] then
-        decode_error(str, i, "invalid literal '" .. word .. "'")
+        table.insert(errors, decode_error(str, i, "invalid literal '" .. word .. "'"))
     end
-    return literal_map[word], x
+    return {
+        data = literal_map[word],
+        idx = x,
+        err = errors,
+    }
 end
 
 local function parse_array(str, i)
+    local errors = {}
     local res = {}
     local n = 1
     i = i + 1
@@ -297,14 +348,20 @@ local function parse_array(str, i)
             break
         end
         if chr ~= "," then
-            decode_error(str, i, "expected ']' or ','")
+            table.insert(errors, decode_error(str, i, "expected ']' or ','"))
         end
     end
-    return res, i
+    return {
+        data = res,
+        idx = i,
+        err = errors,
+    }
 end
 
 local function parse_object(str, i)
     local res = {}
+    local errors = {}
+
     i = i + 1
     while 1 do
         local key, val
@@ -316,17 +373,19 @@ local function parse_object(str, i)
         end
         -- Read key
         if str:sub(i, i) ~= '"' then
-            decode_error(str, i, "expected string for key")
+            table.insert(errors, decode_error(str, i, "expected string for key"))
         end
-        key, i = parse(str, i)
+        local parsed_data = parse(str, i)
+        key, i = parsed_data.data, parsed_data.idx
         -- Read ':' delimiter
         i = next_char(str, i, space_chars, true)
         if str:sub(i, i) ~= ":" then
-            decode_error(str, i, "expected ':' after key")
+            table.insert(errors, decode_error(str, i, "expected ':' after key"))
         end
         i = next_char(str, i + 1, space_chars, true)
         -- Read value
-        val, i = parse(str, i)
+        parsed_data = parse(str, i)
+        val, i = parsed_data.data, parsed_data.idx
         -- Set
         res[key] = val
         -- Next token
@@ -337,10 +396,14 @@ local function parse_object(str, i)
             break
         end
         if chr ~= "," then
-            decode_error(str, i, "expected '}' or ','")
+            table.insert(errors, decode_error(str, i, "expected '}' or ','"))
         end
     end
-    return res, i
+    return {
+        data = res,
+        idx = i,
+        err = errors,
+    }
 end
 
 local char_func_map = {
@@ -367,21 +430,35 @@ parse = function(str, idx)
     local chr = str:sub(idx, idx)
     local f = char_func_map[chr]
     if f then
-        return f(str, idx)
+        local decoded_data = f(str, idx)
+        return {
+            data = decoded_data.data,
+            idx = decoded_data.idx,
+            err = decoded_data.err,
+        }
     end
-    decode_error(str, idx, "unexpected character '" .. chr .. "'")
+    return {
+        data = "",
+        idx = 1,
+        err = {
+            decode_error(str, idx, "unexpected character '" .. chr .. "'")
+        }
+    }
 end
 
 function json.decode(str)
     if type(str) ~= "string" then
-        error("expected argument of type string, got " .. type(str))
+        return {
+            data = "",
+            err = { "expected argument of type string, got " .. type(str) }
+        }
     end
-    local res, idx = parse(str, next_char(str, 1, space_chars, true))
-    idx = next_char(str, idx, space_chars, true)
-    if idx <= #str then
-        decode_error(str, idx, "trailing garbage")
+    local res = parse(str, next_char(str, 1, space_chars, true))
+    res.idx = next_char(str, res.idx, space_chars, true)
+    if res.idx <= #str then
+        decode_error(str, res.idx, "trailing garbage")
     end
-    return res
+    return { data = res.data, err = res.errors }
 end
 
 function json.beautify(str)

@@ -440,11 +440,9 @@ function json.beautify(str)
                     end
                 elseif curr_c == ":" and next_c ~= " " then
                     beauty_json = beauty_json .. curr_c .. " "
-                elseif curr_c == '"' and next_c == "}" then
-                    -- BUG: the last '}' will be at the right side of the character
-                    -- if the current character is not a double quote
+                elseif curr_c == '"' and next_c == "}" or curr_c:find("%w") and next_c == "}" then
                     indent_level = indent_level - 1
-                    beauty_json = beauty_json .. "\n" .. make_indent(indent_level)
+                    beauty_json = beauty_json .. curr_c .. "\n" .. make_indent(indent_level)
                 else
                     beauty_json = beauty_json .. curr_c
                 end

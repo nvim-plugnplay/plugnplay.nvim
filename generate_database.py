@@ -13,7 +13,13 @@ with open("database.json", "+w") as file:
         if match:
             print("Match found for", match.group(1))
             req = requests.get(b"https://api.github.com/repos/" + match.group(1))
-            file.write(json.dumps(req.text, sort_keys=True, indent=4))
+
+            if req.text.find("API rate limit exceeded") != -1:
+                print("We are being rate limited!")
+                print(req.text)
+                exit(-1)
+
+            file.write(json.dumps(json.loads(req.text), sort_keys=True, indent=4))
             count += 1
             print("---- DUMPED JSON ----")
     file.close()

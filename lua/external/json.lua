@@ -385,7 +385,6 @@ function json.decode(str)
 end
 
 function json.beautify(str)
-    -- TODO: improve beautification of non-compact json strings, they're getting some newlines
     local beauty_json = ""
     local indent_level = 0
     local is_start_line = false

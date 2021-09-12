@@ -14,7 +14,9 @@ function plugman.read_plugins(location)
         location,
         [[
 {
-    "plugins": {}
+    "auto": {},
+    "plugins-with-configs": {},
+    "custom": {}
 }
     ]]
     )
@@ -48,7 +50,6 @@ end
 
 function plugman.compile()
     local compiled = {}
-    local log = require("plugman.external.log")
 
     for k, v in pairs(plugman.config) do
         if k == "plugins" then

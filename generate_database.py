@@ -24,7 +24,7 @@ with open("database.json", "+w") as file:
             req_json = json.loads(req.text)
             # Extract only the data that we need
             plugin_data = {}
-            wanted_fields = ["full_name", "name", "description", "default_branch", "fork", "archived", "private", "clone_url", "commits_url", "created_at", "updated_at", "stargazers_count", "subscribers_count", "forks_count", "language", "open_issues_count"]
+            wanted_fields = ["full_name", "description", "default_branch", "fork", "archived", "private", "clone_url", "commits_url", "created_at", "updated_at", "stargazers_count", "subscribers_count", "forks_count", "language", "open_issues_count"]
             for field in req_json.keys():
                 if field in wanted_fields:
                     plugin_data[field] = req_json[field]

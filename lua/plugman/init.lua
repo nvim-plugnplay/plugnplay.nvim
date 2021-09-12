@@ -8,9 +8,9 @@ local plugman = {
     lockfile = "",
 }
 function plugman.read_plugins(location)
-    local json = require("external.json")
+    local json = require("plugman.external.json")
 
-    local content = require("fs").read_or_create(
+    local content = require("plugman.fs").read_or_create(
         location,
         [[
 {
@@ -36,19 +36,19 @@ function plugman.startup(config_location)
 end
 
 function plugman.setup(configuration)
-    local log = require("external.log")
+    local log = require("plugman.external.log")
 
     plugman.config = vim.tbl_deep_extend("force", plugman.config, configuration)
 
     log.new(plugman.config.plugman.log, true)
 
     -- Load the plugman lockfile
-    plugman.lockfile = require("fs").read_or_create(plugman.config.plugman.lockfile, "{}")
+    plugman.lockfile = require("plugman.fs").read_or_create(plugman.config.plugman.lockfile, "{}")
 end
 
 function plugman.compile()
     local compiled = {}
-    local log = require("external.log")
+    local log = require("plugman.external.log")
 
     for k, v in pairs(plugman.config) do
         if k == "plugins" then
@@ -153,7 +153,7 @@ Execute :messages to see the full output.
         end
     end
 
-    local json = require("external.json")
+    local json = require("plugman.external.json")
 
     local file = io.open(plugman.config.plugman.lockfile, "w+")
 

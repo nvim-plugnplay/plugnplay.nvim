@@ -28,9 +28,37 @@
     During startup plugman will read the `plugins.json` file and set up all things related to plugin configuration.
     That's it. It shouldn't do anything else.
  ** Format
-    TODO: Finish
+    The `plugins.json` format will look like this:
     @code jsonc
     {
-        "insert": "json here"
+        "plugman": {
+            // Configuration for plugman goes here
+        },
+        
+        // Plugins we want to auto-configure
+        "auto-config": [
+            "neorg",
+            "something-else"
+        ],
+    
+        // Similar to "auto-config" except we actually need to supply our own configuration
+        "plugins": {
+            "telescope.nvim": {
+                "configuration": {
+                    "pickers": {} // Or whatever
+                }
+            }
+        },
+    
+        // For entries that are not present in our database
+        "custom": {
+            "something": "a/url", // The value can be simply a string
+            "something": { // Or it can be a table
+                "url": "a/url", // The URL value must be supplied
+                "configuration": { // A configuration table is optional
+                    "key": "value"
+                }
+            }
+        }
     }
     @end

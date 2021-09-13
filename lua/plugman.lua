@@ -1,3 +1,7 @@
+local fs = require("plugman.fs")
+local log = require("plugman.external.log")
+local json = require("plugman.external.json")
+
 local plugman = {
     config = {
         plugman = {
@@ -7,10 +11,9 @@ local plugman = {
     },
     lockfile = "",
 }
-function plugman.read_plugins(location)
-    local json = require("plugman.external.json")
 
-    local content = require("plugman.fs").read_or_create(
+function plugman.read_plugins(location)
+    local content = fs.read_or_create(
         location,
         [[
 {
@@ -29,23 +32,21 @@ function plugman.startup(config_location)
 
     local decoded_json = plugman.read_plugins(location)
 
-    if not decoded_json then
+    if #decoded_json.err > 0 then
         -- TODO: error message
         return
     end
 
-    plugman.setup(decoded_json)
+    plugman.setup(decoded_json.data)
 end
 
 function plugman.setup(configuration)
-    local log = require("plugman.external.log")
-
     plugman.config = vim.tbl_deep_extend("force", plugman.config, configuration)
 
     log.new(plugman.config.plugman.log, true)
 
     -- Load the plugman lockfile
-    plugman.lockfile = require("plugman.fs").read_or_create(plugman.config.plugman.lockfile, "{}")
+    plugman.lockfile = fs.read_or_create(plugman.config.plugman.lockfile, "{}")
 end
 
 function plugman.compile()
@@ -154,14 +155,7 @@ Execute :messages to see the full output.
         end
     end
 
-    local json = require("plugman.external.json")
-
-    local file = io.open(plugman.config.plugman.lockfile, "w+")
-
-    if file then
-        file:write(json.beautify(json.encode(compiled)))
-        file:close()
-    end
+    fs.write_file(plugman.config.plugman.lockfile, "w+", json.beautify(json.encode(compiled)))
 end
 
 function plugman.update() end

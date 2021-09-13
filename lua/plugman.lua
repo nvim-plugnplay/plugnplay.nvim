@@ -39,7 +39,7 @@ function plugman.startup(config_location)
 end
 
 function plugman.setup(configuration)
-    plugman.config = vim.tbl_deep_extend("force", plugman.config, configuration)
+    plugman.config = vim.tbl_deep_extend("force", plugman.config, configuration or {})
 
     log.new(plugman.config.plugman.log, true)
 

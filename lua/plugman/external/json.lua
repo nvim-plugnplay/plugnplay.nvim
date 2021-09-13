@@ -25,10 +25,10 @@
 local json = { _version = "0.1.2" }
 
 -------------------------------------------------------------------------------
--- Encode
+-- Decode
 -------------------------------------------------------------------------------
 
-local encode
+local decode
 
 local escape_char_map = {
     ["\\"] = "\\",
@@ -53,11 +53,11 @@ local function escape_char(c)
     return "\\" .. (escape_char_map[c] or string.format("u%04x", c:byte()))
 end
 
-local function encode_nil()
+local function decode_nil()
     return "null"
 end
 
-local function encode_table(val, stack)
+local function decode_table(val, stack)
     local res = {}
     local errors = {}
     stack = stack or {}
@@ -92,7 +92,7 @@ local function encode_table(val, stack)
         end
         -- Encode
         for i = 1, length do
-            table.insert(res, encode(val[i], stack).data)
+            table.insert(res, decode(val[i], stack).data)
         end
         stack[val] = nil
         return {
@@ -106,7 +106,7 @@ local function encode_table(val, stack)
             if type(k) ~= "string" then
                 table.insert(errors, string.format("invalid key type ('%s') found at line %d", type(k), line_number))
             end
-            table.insert(res, encode(k, stack).data .. ":" .. encode(v, stack).data)
+            table.insert(res, decode(k, stack).data .. ":" .. decode(v, stack).data)
 
             line_number = line_number + 1
         end
@@ -118,14 +118,14 @@ local function encode_table(val, stack)
     end
 end
 
-local function encode_string(val)
+local function decode_string(val)
     return {
         data = '"' .. val:gsub('[%z\1-\31\\"]', escape_char) .. '"',
         err = {},
     }
 end
 
-local function encode_number(val)
+local function decode_number(val)
     local errors = {}
 
     -- Check for NaN, -inf and inf
@@ -139,14 +139,14 @@ local function encode_number(val)
 end
 
 local type_func_map = {
-    ["nil"] = encode_nil,
-    ["table"] = encode_table,
-    ["string"] = encode_string,
-    ["number"] = encode_number,
+    ["nil"] = decode_nil,
+    ["table"] = decode_table,
+    ["string"] = decode_string,
+    ["number"] = decode_number,
     ["boolean"] = tostring,
 }
 
-encode = function(val, stack)
+decode = function(val, stack)
     local t = type(val)
     local f = type_func_map[t]
     if f then
@@ -170,12 +170,12 @@ encode = function(val, stack)
     }
 end
 
-function json.encode(val)
-    return encode(val)
+function json.decode(val)
+    return decode(val)
 end
 
 -------------------------------------------------------------------------------
--- Decode
+-- Encode
 -------------------------------------------------------------------------------
 
 local parse
@@ -446,7 +446,7 @@ parse = function(str, idx)
     }
 end
 
-function json.decode(str)
+function json.encode(str)
     if type(str) ~= "string" then
         return {
             data = "",

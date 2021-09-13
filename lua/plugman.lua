@@ -15,13 +15,11 @@ local plugman = {
 function plugman.read_plugins(location)
     local content = fs.read_or_create(
         location,
-        [[
-{
+        [[{
     "auto": {},
     "plugins-with-configs": {},
     "custom": {}
-}
-    ]]
+}]]
     )
 
     return json.decode(content)

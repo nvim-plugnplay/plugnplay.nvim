@@ -33,7 +33,7 @@ jobs:
             git add database.json
             git commit -m "chore: update plugins database"
           fi
-      - name: Push formatted files
+      - name: Push regenerated database
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

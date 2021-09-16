@@ -179,21 +179,6 @@
         "stargazers_count": 123,
         "updated_at": "2021-09-16T19:10:03Z"
     },
-    "Dot-It-Up": {
-        "archived": false,
-        "clone_url": "https://github.com/Torbet/Dot-It-Up.git",
-        "created_at": "2021-08-21T16:09:54Z",
-        "default_branch": "main",
-        "description": "A collection of dotfile scripts, plugins, and clever hacks so that you can become the master of your own OS! \ud83d\ude80",
-        "fork": false,
-        "forks_count": 7,
-        "full_name": "Torbet/Dot-It-Up",
-        "language": null,
-        "open_issues_count": 1,
-        "private": false,
-        "stargazers_count": 220,
-        "updated_at": "2021-09-13T13:24:44Z"
-    },
     "Dusk-til-Dawn.nvim": {
         "archived": false,
         "clone_url": "https://github.com/Th3Whit3Wolf/Dusk-til-Dawn.nvim.git",
@@ -269,21 +254,6 @@
         "stargazers_count": 2,
         "updated_at": "2021-08-30T03:07:06Z"
     },
-    "Free-DevOps-Books-1": {
-        "archived": false,
-        "clone_url": "https://github.com/nkatre/Free-DevOps-Books-1.git",
-        "created_at": "2019-06-30T17:23:30Z",
-        "default_branch": "master",
-        "description": "A curated collection of free DevOps related eBooks",
-        "fork": false,
-        "forks_count": 308,
-        "full_name": "nkatre/Free-DevOps-Books-1",
-        "language": null,
-        "open_issues_count": 0,
-        "private": false,
-        "stargazers_count": 614,
-        "updated_at": "2021-09-16T19:30:57Z"
-    },
     "HighStr.nvim": {
         "archived": false,
         "clone_url": "https://github.com/Pocco81/HighStr.nvim.git",
@@ -358,36 +328,6 @@
         "private": false,
         "stargazers_count": 2,
         "updated_at": "2021-08-14T02:57:48Z"
-    },
-    "List-of-important-publications-in-chemistry": {
-        "archived": false,
-        "clone_url": "https://github.com/manjunath5496/List-of-important-publications-in-chemistry.git",
-        "created_at": "2019-10-04T06:26:10Z",
-        "default_branch": "master",
-        "description": "\"The meeting of two personalities is like the contact of two chemical substances: if there is any reaction, both are transformed.\" \u2015 Carl Gustav Jung",
-        "fork": false,
-        "forks_count": 0,
-        "full_name": "manjunath5496/List-of-important-publications-in-chemistry",
-        "language": null,
-        "open_issues_count": 0,
-        "private": false,
-        "stargazers_count": 2,
-        "updated_at": "2021-05-01T06:06:10Z"
-    },
-    "List-of-important-publications-in-psychology": {
-        "archived": false,
-        "clone_url": "https://github.com/manjunath5496/List-of-important-publications-in-psychology.git",
-        "created_at": "2019-12-06T05:06:39Z",
-        "default_branch": "master",
-        "description": "\"The pendulum of the mind oscillates between sense and nonsense, not between right and wrong.\" \u2015 Carl Gustav Jung ",
-        "fork": false,
-        "forks_count": 0,
-        "full_name": "manjunath5496/List-of-important-publications-in-psychology",
-        "language": null,
-        "open_issues_count": 0,
-        "private": false,
-        "stargazers_count": 2,
-        "updated_at": "2021-05-01T06:06:05Z"
     },
     "LiveTableLogger.nvim": {
         "archived": false,
@@ -568,21 +508,6 @@
         "private": false,
         "stargazers_count": 18,
         "updated_at": "2021-09-07T01:27:40Z"
-    },
-    "Philosophy": {
-        "archived": false,
-        "clone_url": "https://github.com/Jfaler/Philosophy.git",
-        "created_at": "2019-07-29T20:02:32Z",
-        "default_branch": "master",
-        "description": ":octocat: A list of philosophy books and resources.",
-        "fork": false,
-        "forks_count": 14,
-        "full_name": "Jfaler/Philosophy",
-        "language": null,
-        "open_issues_count": 1,
-        "private": false,
-        "stargazers_count": 220,
-        "updated_at": "2021-09-14T01:05:47Z"
     },
     "Sakura.nvim": {
         "archived": false,
@@ -793,21 +718,6 @@
         "private": false,
         "stargazers_count": 3,
         "updated_at": "2021-09-02T16:49:14Z"
-    },
-    "Wiki": {
-        "archived": false,
-        "clone_url": "https://github.com/Machine-Academy/Wiki.git",
-        "created_at": "2021-08-20T23:38:57Z",
-        "default_branch": "main",
-        "description": "Machiners Wiki",
-        "fork": false,
-        "forks_count": 0,
-        "full_name": "Machine-Academy/Wiki",
-        "language": null,
-        "open_issues_count": 0,
-        "private": false,
-        "stargazers_count": 10,
-        "updated_at": "2021-08-27T15:46:00Z"
     },
     "absp-nvim": {
         "archived": false,
@@ -1169,96 +1079,6 @@
         "stargazers_count": 9,
         "updated_at": "2021-09-16T05:28:52Z"
     },
-    "awesome-competitive-programming": {
-        "archived": false,
-        "clone_url": "https://github.com/lnishan/awesome-competitive-programming.git",
-        "created_at": "2015-11-20T16:11:51Z",
-        "default_branch": "master",
-        "description": ":gem: A curated list of awesome Competitive Programming, Algorithm and Data Structure resources",
-        "fork": false,
-        "forks_count": 2205,
-        "full_name": "lnishan/awesome-competitive-programming",
-        "language": null,
-        "open_issues_count": 15,
-        "private": false,
-        "stargazers_count": 8822,
-        "updated_at": "2021-09-16T14:28:14Z"
-    },
-    "awesome-datahoarding": {
-        "archived": false,
-        "clone_url": "https://github.com/simon987/awesome-datahoarding.git",
-        "created_at": "2018-10-15T23:55:04Z",
-        "default_branch": "master",
-        "description": "List of data-hoarding related tools",
-        "fork": false,
-        "forks_count": 60,
-        "full_name": "simon987/awesome-datahoarding",
-        "language": null,
-        "open_issues_count": 1,
-        "private": false,
-        "stargazers_count": 606,
-        "updated_at": "2021-09-16T14:38:30Z"
-    },
-    "awesome-generative-art": {
-        "archived": false,
-        "clone_url": "https://github.com/kosmos/awesome-generative-art.git",
-        "created_at": "2017-03-29T11:16:12Z",
-        "default_branch": "master",
-        "description": "Awesome generative art",
-        "fork": false,
-        "forks_count": 72,
-        "full_name": "kosmos/awesome-generative-art",
-        "language": null,
-        "open_issues_count": 4,
-        "private": false,
-        "stargazers_count": 1099,
-        "updated_at": "2021-09-14T11:45:14Z"
-    },
-    "awesome-lua": {
-        "archived": false,
-        "clone_url": "https://github.com/uhub/awesome-lua.git",
-        "created_at": "2015-08-12T21:58:22Z",
-        "default_branch": "master",
-        "description": "A curated list of awesome Lua frameworks, libraries and software.",
-        "fork": false,
-        "forks_count": 44,
-        "full_name": "uhub/awesome-lua",
-        "language": null,
-        "open_issues_count": 13,
-        "private": false,
-        "stargazers_count": 332,
-        "updated_at": "2021-09-13T03:58:40Z"
-    },
-    "awesome-neovim": {
-        "archived": false,
-        "clone_url": "https://github.com/rockerBOO/awesome-neovim.git",
-        "created_at": "2020-09-18T18:40:59Z",
-        "default_branch": "main",
-        "description": "Collections of awesome neovim plugins.",
-        "fork": false,
-        "forks_count": 117,
-        "full_name": "rockerBOO/awesome-neovim",
-        "language": null,
-        "open_issues_count": 0,
-        "private": false,
-        "stargazers_count": 1975,
-        "updated_at": "2021-09-16T19:28:15Z"
-    },
-    "awesome-philosophy": {
-        "archived": false,
-        "clone_url": "https://github.com/HussainAther/awesome-philosophy.git",
-        "created_at": "2019-04-03T20:35:10Z",
-        "default_branch": "master",
-        "description": "A curated list of awesome philosophy",
-        "fork": false,
-        "forks_count": 8,
-        "full_name": "HussainAther/awesome-philosophy",
-        "language": null,
-        "open_issues_count": 0,
-        "private": false,
-        "stargazers_count": 77,
-        "updated_at": "2021-09-06T12:18:44Z"
-    },
     "awesome-streamerrc": {
         "archived": false,
         "clone_url": "https://github.com/awesome-streamers/awesome-streamerrc.git",
@@ -1273,21 +1093,6 @@
         "private": false,
         "stargazers_count": 982,
         "updated_at": "2021-09-13T06:43:57Z"
-    },
-    "awesome-tmux": {
-        "archived": false,
-        "clone_url": "https://github.com/rothgar/awesome-tmux.git",
-        "created_at": "2016-04-04T05:33:34Z",
-        "default_branch": "master",
-        "description": "A list of awesome resources for tmux",
-        "fork": false,
-        "forks_count": 175,
-        "full_name": "rothgar/awesome-tmux",
-        "language": null,
-        "open_issues_count": 4,
-        "private": false,
-        "stargazers_count": 4104,
-        "updated_at": "2021-09-15T22:58:31Z"
     },
     "b64.nvim": {
         "archived": false,
@@ -1618,21 +1423,6 @@
         "private": false,
         "stargazers_count": 69,
         "updated_at": "2021-09-16T17:35:40Z"
-    },
-    "build-your-own-x": {
-        "archived": false,
-        "clone_url": "https://github.com/danistefanovic/build-your-own-x.git",
-        "created_at": "2018-05-09T12:03:18Z",
-        "default_branch": "master",
-        "description": "\ud83e\udd13 Build your own (insert technology here)",
-        "fork": false,
-        "forks_count": 10561,
-        "full_name": "danistefanovic/build-your-own-x",
-        "language": null,
-        "open_issues_count": 188,
-        "private": false,
-        "stargazers_count": 117345,
-        "updated_at": "2021-09-16T20:06:06Z"
     },
     "cacophony.nvim": {
         "archived": false,
@@ -2217,7 +2007,7 @@
         "open_issues_count": 0,
         "private": false,
         "stargazers_count": 38,
-        "updated_at": "2021-09-16T13:19:30Z"
+        "updated_at": "2021-09-16T20:29:28Z"
     },
     "codeql.nvim": {
         "archived": false,
@@ -2593,21 +2383,6 @@
         "private": false,
         "stargazers_count": 18,
         "updated_at": "2021-04-28T13:03:51Z"
-    },
-    "computer-science": {
-        "archived": false,
-        "clone_url": "https://github.com/ossu/computer-science.git",
-        "created_at": "2014-05-04T00:18:39Z",
-        "default_branch": "master",
-        "description": ":mortar_board: Path to a free self-taught education in Computer Science!",
-        "fork": false,
-        "forks_count": 12989,
-        "full_name": "ossu/computer-science",
-        "language": null,
-        "open_issues_count": 14,
-        "private": false,
-        "stargazers_count": 95416,
-        "updated_at": "2021-09-16T18:26:39Z"
     },
     "config": {
         "archived": false,
@@ -3131,8 +2906,8 @@
         "language": "Lua",
         "open_issues_count": 3,
         "private": false,
-        "stargazers_count": 118,
-        "updated_at": "2021-09-14T11:09:44Z"
+        "stargazers_count": 119,
+        "updated_at": "2021-09-16T20:40:08Z"
     },
     "diffview.nvim": {
         "archived": false,
@@ -3944,36 +3719,6 @@
         "stargazers_count": 319,
         "updated_at": "2021-09-15T18:01:27Z"
     },
-    "free-programming-books": {
-        "archived": false,
-        "clone_url": "https://github.com/EbookFoundation/free-programming-books.git",
-        "created_at": "2013-10-11T06:50:37Z",
-        "default_branch": "master",
-        "description": ":books: Freely available programming books",
-        "fork": false,
-        "forks_count": 44404,
-        "full_name": "EbookFoundation/free-programming-books",
-        "language": null,
-        "open_issues_count": 28,
-        "private": false,
-        "stargazers_count": 204583,
-        "updated_at": "2021-09-16T20:19:43Z"
-    },
-    "friendly-snippets": {
-        "archived": false,
-        "clone_url": "https://github.com/rafamadriz/friendly-snippets.git",
-        "created_at": "2021-03-27T14:00:18Z",
-        "default_branch": "main",
-        "description": "Set of preconfigured snippets for different languages. ",
-        "fork": false,
-        "forks_count": 55,
-        "full_name": "rafamadriz/friendly-snippets",
-        "language": null,
-        "open_issues_count": 9,
-        "private": false,
-        "stargazers_count": 185,
-        "updated_at": "2021-09-16T16:39:36Z"
-    },
     "fur.nvim": {
         "archived": false,
         "clone_url": "https://github.com/nanozuki/fur.nvim.git",
@@ -4182,7 +3927,7 @@
         "open_issues_count": 0,
         "private": false,
         "stargazers_count": 7,
-        "updated_at": "2021-09-14T15:19:07Z"
+        "updated_at": "2021-09-16T20:34:25Z"
     },
     "gesture.nvim": {
         "archived": false,
@@ -5442,7 +5187,7 @@
         "open_issues_count": 0,
         "private": false,
         "stargazers_count": 231,
-        "updated_at": "2021-09-16T07:57:55Z"
+        "updated_at": "2021-09-16T20:36:51Z"
     },
     "lapland.nvim": {
         "archived": false,
@@ -6209,21 +5954,6 @@
         "stargazers_count": 501,
         "updated_at": "2021-09-16T17:06:04Z"
     },
-    "luv-vimdocs": {
-        "archived": false,
-        "clone_url": "https://github.com/nanotee/luv-vimdocs.git",
-        "created_at": "2021-05-18T17:57:06Z",
-        "default_branch": "main",
-        "description": null,
-        "fork": false,
-        "forks_count": 0,
-        "full_name": "nanotee/luv-vimdocs",
-        "language": null,
-        "open_issues_count": 0,
-        "private": false,
-        "stargazers_count": 42,
-        "updated_at": "2021-08-26T11:36:34Z"
-    },
     "lvim": {
         "archived": false,
         "clone_url": "https://github.com/lvim-tech/lvim.git",
@@ -6837,7 +6567,7 @@
         "open_issues_count": 47,
         "private": false,
         "stargazers_count": 856,
-        "updated_at": "2021-09-16T14:11:42Z"
+        "updated_at": "2021-09-16T20:24:00Z"
     },
     "neoline.vim": {
         "archived": false,
@@ -6883,21 +6613,6 @@
         "private": false,
         "stargazers_count": 50,
         "updated_at": "2021-09-16T10:34:50Z"
-    },
-    "neorants": {
-        "archived": false,
-        "clone_url": "https://github.com/mjlbach/neorants.git",
-        "created_at": "2021-04-09T00:41:35Z",
-        "default_branch": "master",
-        "description": null,
-        "fork": false,
-        "forks_count": 1,
-        "full_name": "mjlbach/neorants",
-        "language": null,
-        "open_issues_count": 1,
-        "private": false,
-        "stargazers_count": 53,
-        "updated_at": "2021-07-20T19:13:11Z"
     },
     "neorg": {
         "archived": false,
@@ -9149,21 +8864,6 @@
         "stargazers_count": 1,
         "updated_at": "2021-03-14T20:16:15Z"
     },
-    "nvim-lua-guide": {
-        "archived": false,
-        "clone_url": "https://github.com/nanotee/nvim-lua-guide.git",
-        "created_at": "2020-06-26T21:49:37Z",
-        "default_branch": "master",
-        "description": "A guide to using Lua in Neovim",
-        "fork": false,
-        "forks_count": 49,
-        "full_name": "nanotee/nvim-lua-guide",
-        "language": null,
-        "open_issues_count": 3,
-        "private": false,
-        "stargazers_count": 1830,
-        "updated_at": "2021-09-16T18:37:34Z"
-    },
     "nvim-lua-plugin-template": {
         "archived": false,
         "clone_url": "https://github.com/nvim-lua/nvim-lua-plugin-template.git",
@@ -9268,21 +8968,6 @@
         "private": false,
         "stargazers_count": 86,
         "updated_at": "2021-09-06T13:41:02Z"
-    },
-    "nvim-matcha": {
-        "archived": false,
-        "clone_url": "https://github.com/hrsh7th/nvim-matcha.git",
-        "created_at": "2021-09-10T03:08:53Z",
-        "default_branch": "main",
-        "description": "A fuzzy finding plugin for neovim (for my personal use)",
-        "fork": false,
-        "forks_count": 0,
-        "full_name": "hrsh7th/nvim-matcha",
-        "language": null,
-        "open_issues_count": 0,
-        "private": false,
-        "stargazers_count": 12,
-        "updated_at": "2021-09-11T19:58:44Z"
     },
     "nvim-miniluv": {
         "archived": false,
@@ -10063,21 +9748,6 @@
         "private": false,
         "stargazers_count": 1157,
         "updated_at": "2021-09-16T18:01:44Z"
-    },
-    "nvim-treesitter": {
-        "archived": false,
-        "clone_url": "https://github.com/tjdevries/nvim-treesitter.git",
-        "created_at": "2020-08-07T04:08:05Z",
-        "default_branch": "master",
-        "description": "Nvim Treesitter configurations and abstraction layer",
-        "fork": true,
-        "forks_count": 0,
-        "full_name": "tjdevries/nvim-treesitter",
-        "language": null,
-        "open_issues_count": 0,
-        "private": false,
-        "stargazers_count": 4,
-        "updated_at": "2021-06-12T02:48:00Z"
     },
     "nvim-treesitter-commonlisp": {
         "archived": false,
@@ -10949,21 +10619,6 @@
         "stargazers_count": 1,
         "updated_at": "2021-08-09T15:28:34Z"
     },
-    "os-ansi": {
-        "archived": false,
-        "clone_url": "https://github.com/info-mono/os-ansi.git",
-        "created_at": "2021-08-28T10:00:09Z",
-        "default_branch": "main",
-        "description": "\ud83d\udc27 OS/Distro's logo ANSI art",
-        "fork": false,
-        "forks_count": 0,
-        "full_name": "info-mono/os-ansi",
-        "language": null,
-        "open_issues_count": 0,
-        "private": false,
-        "stargazers_count": 3,
-        "updated_at": "2021-09-06T08:13:55Z"
-    },
     "osc.nvim": {
         "archived": false,
         "clone_url": "https://github.com/davidgranstrom/osc.nvim.git",
@@ -11188,21 +10843,6 @@
         "private": false,
         "stargazers_count": 25,
         "updated_at": "2021-09-14T21:25:27Z"
-    },
-    "pipeinstall": {
-        "archived": false,
-        "clone_url": "https://github.com/KubikPixel/pipeinstall.git",
-        "created_at": "2021-04-22T07:46:46Z",
-        "default_branch": "main",
-        "description": "A list of projects that use a shell pipe and cURL or Wget to install themselves.",
-        "fork": false,
-        "forks_count": 2,
-        "full_name": "KubikPixel/pipeinstall",
-        "language": null,
-        "open_issues_count": 2,
-        "private": false,
-        "stargazers_count": 4,
-        "updated_at": "2021-05-07T16:02:23Z"
     },
     "plain-nvim": {
         "archived": false,
@@ -11548,21 +11188,6 @@
         "private": false,
         "stargazers_count": 5,
         "updated_at": "2021-08-13T03:36:04Z"
-    },
-    "questions-for-employers": {
-        "archived": false,
-        "clone_url": "https://github.com/tBaxter/questions-for-employers.git",
-        "created_at": "2021-03-09T14:37:33Z",
-        "default_branch": "main",
-        "description": "A big collection of useful questions to ask potential employers.",
-        "fork": false,
-        "forks_count": 10,
-        "full_name": "tBaxter/questions-for-employers",
-        "language": null,
-        "open_issues_count": 0,
-        "private": false,
-        "stargazers_count": 346,
-        "updated_at": "2021-09-15T22:41:50Z"
     },
     "range-highlight.nvim": {
         "archived": false,
@@ -12013,21 +11638,6 @@
         "private": false,
         "stargazers_count": 226,
         "updated_at": "2021-09-12T07:16:20Z"
-    },
-    "software-architecture-books": {
-        "archived": false,
-        "clone_url": "https://github.com/mhadidg/software-architecture-books.git",
-        "created_at": "2021-06-25T17:47:04Z",
-        "default_branch": "master",
-        "description": "A comprehensive list of books on Software Architecture.",
-        "fork": false,
-        "forks_count": 294,
-        "full_name": "mhadidg/software-architecture-books",
-        "language": null,
-        "open_issues_count": 3,
-        "private": false,
-        "stargazers_count": 5550,
-        "updated_at": "2021-09-16T14:25:32Z"
     },
     "solarized.nvim": {
         "archived": false,
@@ -13916,8 +13526,8 @@
         "language": "Lua",
         "open_issues_count": 0,
         "private": false,
-        "stargazers_count": 188,
-        "updated_at": "2021-09-16T12:59:40Z"
+        "stargazers_count": 189,
+        "updated_at": "2021-09-16T20:36:58Z"
     },
     "verim.nvim": {
         "archived": false,
@@ -14624,21 +14234,6 @@
         "stargazers_count": 2,
         "updated_at": "2021-08-08T02:00:45Z"
     },
-    "wishlist": {
-        "archived": false,
-        "clone_url": "https://github.com/nvim-lua/wishlist.git",
-        "created_at": "2020-08-13T14:10:07Z",
-        "default_branch": "master",
-        "description": "A public catalogue of Lua plugins Neovim users would like to see exist",
-        "fork": false,
-        "forks_count": 0,
-        "full_name": "nvim-lua/wishlist",
-        "language": null,
-        "open_issues_count": 21,
-        "private": false,
-        "stargazers_count": 131,
-        "updated_at": "2021-09-15T06:31:07Z"
-    },
     "witch-nvim": {
         "archived": false,
         "clone_url": "https://github.com/metalelf0/witch-nvim.git",
@@ -14653,21 +14248,6 @@
         "private": false,
         "stargazers_count": 5,
         "updated_at": "2021-09-13T14:34:55Z"
-    },
-    "wrap-guide.nvim": {
-        "archived": false,
-        "clone_url": "https://github.com/yamatsum/wrap-guide.nvim.git",
-        "created_at": "2020-09-11T14:26:00Z",
-        "default_branch": "master",
-        "description": null,
-        "fork": false,
-        "forks_count": 0,
-        "full_name": "yamatsum/wrap-guide.nvim",
-        "language": null,
-        "open_issues_count": 0,
-        "private": false,
-        "stargazers_count": 1,
-        "updated_at": "2021-03-11T22:20:54Z"
     },
     "wrap-toggle.nvim": {
         "archived": false,

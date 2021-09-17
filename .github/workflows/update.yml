@@ -36,7 +36,7 @@ jobs:
           fi
       - name: Push regenerated database
         uses: ad-m/github-push-action@master
-        directory: ./plugman
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
+          directory: ./plugman

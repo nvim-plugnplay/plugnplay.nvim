@@ -22,7 +22,7 @@ jobs:
       - name: Regenerate database
         run: |
           cd ./plugman
-          python3 generate_database.py
+          CLIENT_ID=${{ secrets.CLIENT_ID }} CLIENT_SECRET=${{ secrets.CLIENT_SECRET }} python3 generate_database.py
 
       - name: Commit database changes
         run: |

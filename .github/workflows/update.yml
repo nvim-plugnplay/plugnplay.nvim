@@ -35,8 +35,8 @@ jobs:
             git commit -m "chore: update plugins database"
           fi
       - name: Push regenerated database
-        run: cd ./plugman
         uses: ad-m/github-push-action@master
+        directory: ./plugman
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}

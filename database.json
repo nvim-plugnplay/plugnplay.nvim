@@ -54,10 +54,10 @@
         "forks_count": 4,
         "full_name": "Pocco81/AutoSave.nvim",
         "language": "Lua",
-        "open_issues_count": 1,
+        "open_issues_count": 0,
         "private": false,
         "stargazers_count": 67,
-        "updated_at": "2021-09-12T18:08:32Z"
+        "updated_at": "2021-09-18T22:08:13Z"
     },
     "BinxNvim": {
         "archived": false,
@@ -99,10 +99,10 @@
         "forks_count": 9,
         "full_name": "Pocco81/Catppuccino.nvim",
         "language": "Lua",
-        "open_issues_count": 2,
+        "open_issues_count": 1,
         "private": false,
         "stargazers_count": 124,
-        "updated_at": "2021-09-16T07:08:34Z"
+        "updated_at": "2021-09-18T22:10:32Z"
     },
     "CodeLibrary.nvim": {
         "archived": false,
@@ -371,8 +371,8 @@
         "language": "Lua",
         "open_issues_count": 108,
         "private": false,
-        "stargazers_count": 5292,
-        "updated_at": "2021-09-18T17:40:47Z"
+        "stargazers_count": 5295,
+        "updated_at": "2021-09-19T00:46:49Z"
     },
     "NVelox": {
         "archived": false,
@@ -491,8 +491,8 @@
         "language": "Lua",
         "open_issues_count": 16,
         "private": false,
-        "stargazers_count": 6616,
-        "updated_at": "2021-09-18T15:14:43Z"
+        "stargazers_count": 6617,
+        "updated_at": "2021-09-19T00:50:32Z"
     },
     "NvimConfig": {
         "archived": false,
@@ -701,8 +701,8 @@
         "language": "Lua",
         "open_issues_count": 13,
         "private": false,
-        "stargazers_count": 309,
-        "updated_at": "2021-09-14T16:59:21Z"
+        "stargazers_count": 310,
+        "updated_at": "2021-09-18T20:20:46Z"
     },
     "Vmath.nvim": {
         "archived": false,
@@ -1016,8 +1016,8 @@
         "language": "Lua",
         "open_issues_count": 2,
         "private": false,
-        "stargazers_count": 105,
-        "updated_at": "2021-09-14T16:26:46Z"
+        "stargazers_count": 106,
+        "updated_at": "2021-09-18T22:17:32Z"
     },
     "async-await.lua": {
         "archived": false,
@@ -1047,7 +1047,7 @@
         "open_issues_count": 0,
         "private": false,
         "stargazers_count": 3,
-        "updated_at": "2021-09-18T19:22:38Z"
+        "updated_at": "2021-09-18T23:51:33Z"
     },
     "aurora": {
         "archived": false,
@@ -1062,7 +1062,7 @@
         "open_issues_count": 0,
         "private": false,
         "stargazers_count": 76,
-        "updated_at": "2021-09-18T14:05:07Z"
+        "updated_at": "2021-09-18T23:19:01Z"
     },
     "auto-pandoc.nvim": {
         "archived": false,
@@ -1706,8 +1706,8 @@
         "language": "Lua",
         "open_issues_count": 0,
         "private": false,
-        "stargazers_count": 63,
-        "updated_at": "2021-09-18T04:23:51Z"
+        "stargazers_count": 64,
+        "updated_at": "2021-09-18T21:12:24Z"
     },
     "close-buffers.nvim": {
         "archived": false,
@@ -2066,8 +2066,8 @@
         "language": "Lua",
         "open_issues_count": 0,
         "private": false,
-        "stargazers_count": 42,
-        "updated_at": "2021-09-18T15:26:50Z"
+        "stargazers_count": 43,
+        "updated_at": "2021-09-18T23:50:20Z"
     },
     "codeql.nvim": {
         "archived": false,
@@ -2246,8 +2246,8 @@
         "language": "Lua",
         "open_issues_count": 2,
         "private": false,
-        "stargazers_count": 64,
-        "updated_at": "2021-09-16T06:51:28Z"
+        "stargazers_count": 65,
+        "updated_at": "2021-09-19T00:21:22Z"
     },
     "compe-comrade": {
         "archived": false,
@@ -2394,10 +2394,10 @@
         "forks_count": 77,
         "full_name": "nvim-lua/completion-nvim",
         "language": "Lua",
-        "open_issues_count": 81,
+        "open_issues_count": 82,
         "private": false,
-        "stargazers_count": 977,
-        "updated_at": "2021-09-17T10:49:31Z"
+        "stargazers_count": 979,
+        "updated_at": "2021-09-19T00:24:14Z"
     },
     "completion-treesitter": {
         "archived": false,
@@ -2561,8 +2561,8 @@
         "language": "Lua",
         "open_issues_count": 0,
         "private": false,
-        "stargazers_count": 40,
-        "updated_at": "2021-08-27T01:45:06Z"
+        "stargazers_count": 41,
+        "updated_at": "2021-09-18T20:30:18Z"
     },
     "coq.thirdparty": {
         "archived": false,
@@ -2577,7 +2577,7 @@
         "open_issues_count": 0,
         "private": false,
         "stargazers_count": 13,
-        "updated_at": "2021-09-18T00:28:18Z"
+        "updated_at": "2021-09-19T00:30:49Z"
     },
     "coq_wordpress": {
         "archived": false,
@@ -2861,8 +2861,8 @@
         "language": "Lua",
         "open_issues_count": 5,
         "private": false,
-        "stargazers_count": 409,
-        "updated_at": "2021-09-17T16:59:51Z"
+        "stargazers_count": 410,
+        "updated_at": "2021-09-18T21:21:20Z"
     },
     "defined.nvim": {
         "archived": false,
@@ -2921,8 +2921,8 @@
         "language": "Lua",
         "open_issues_count": 3,
         "private": false,
-        "stargazers_count": 16,
-        "updated_at": "2021-09-18T17:42:07Z"
+        "stargazers_count": 17,
+        "updated_at": "2021-09-18T21:14:22Z"
     },
     "dev2one.nvim": {
         "archived": false,
@@ -2996,8 +2996,8 @@
         "language": "Lua",
         "open_issues_count": 6,
         "private": false,
-        "stargazers_count": 494,
-        "updated_at": "2021-09-18T08:41:10Z"
+        "stargazers_count": 495,
+        "updated_at": "2021-09-19T00:37:27Z"
     },
     "dirbuf.nvim": {
         "archived": false,
@@ -3054,10 +3054,10 @@
         "forks_count": 42,
         "full_name": "NTBBloodbath/doom-nvim",
         "language": "Lua",
-        "open_issues_count": 11,
+        "open_issues_count": 12,
         "private": false,
-        "stargazers_count": 317,
-        "updated_at": "2021-09-18T09:40:34Z"
+        "stargazers_count": 318,
+        "updated_at": "2021-09-18T20:29:17Z"
     },
     "doom-one.nvim": {
         "archived": false,
@@ -3551,8 +3551,8 @@
         "language": "Lua",
         "open_issues_count": 5,
         "private": false,
-        "stargazers_count": 315,
-        "updated_at": "2021-09-18T19:31:43Z"
+        "stargazers_count": 316,
+        "updated_at": "2021-09-18T20:21:34Z"
     },
     "fennec-gruvbox.nvim": {
         "archived": false,
@@ -3729,10 +3729,10 @@
         "forks_count": 8,
         "full_name": "beauwilliams/focus.nvim",
         "language": "Lua",
-        "open_issues_count": 4,
+        "open_issues_count": 1,
         "private": false,
         "stargazers_count": 153,
-        "updated_at": "2021-09-18T04:42:39Z"
+        "updated_at": "2021-09-19T00:42:46Z"
     },
     "folding-nvim": {
         "archived": false,
@@ -3894,7 +3894,7 @@
         "forks_count": 17,
         "full_name": "ibhagwan/fzf-lua",
         "language": "Lua",
-        "open_issues_count": 11,
+        "open_issues_count": 9,
         "private": false,
         "stargazers_count": 180,
         "updated_at": "2021-09-18T20:16:12Z"
@@ -3971,8 +3971,8 @@
         "language": "Lua",
         "open_issues_count": 61,
         "private": false,
-        "stargazers_count": 647,
-        "updated_at": "2021-09-18T04:27:08Z"
+        "stargazers_count": 648,
+        "updated_at": "2021-09-18T23:00:22Z"
     },
     "garbo": {
         "archived": false,
@@ -4017,7 +4017,7 @@
         "open_issues_count": 0,
         "private": false,
         "stargazers_count": 8,
-        "updated_at": "2021-09-18T16:24:40Z"
+        "updated_at": "2021-09-18T20:17:12Z"
     },
     "gesture.nvim": {
         "archived": false,
@@ -4271,8 +4271,8 @@
         "language": "Lua",
         "open_issues_count": 5,
         "private": false,
-        "stargazers_count": 265,
-        "updated_at": "2021-09-15T18:31:16Z"
+        "stargazers_count": 266,
+        "updated_at": "2021-09-18T21:09:58Z"
     },
     "glowbeam.nvim": {
         "archived": false,
@@ -4347,7 +4347,7 @@
         "open_issues_count": 3,
         "private": false,
         "stargazers_count": 150,
-        "updated_at": "2021-09-18T11:14:09Z"
+        "updated_at": "2021-09-18T23:58:11Z"
     },
     "godot.nvim": {
         "archived": false,
@@ -4436,8 +4436,8 @@
         "language": "Lua",
         "open_issues_count": 3,
         "private": false,
-        "stargazers_count": 129,
-        "updated_at": "2021-09-17T22:46:32Z"
+        "stargazers_count": 130,
+        "updated_at": "2021-09-18T20:44:51Z"
     },
     "grammar-guard.nvim": {
         "archived": false,
@@ -4811,8 +4811,8 @@
         "language": "Lua",
         "open_issues_count": 3,
         "private": false,
-        "stargazers_count": 200,
-        "updated_at": "2021-09-18T00:41:35Z"
+        "stargazers_count": 199,
+        "updated_at": "2021-09-18T22:47:13Z"
     },
     "impromptu.nvim": {
         "archived": false,
@@ -5261,8 +5261,8 @@
         "language": "Lua",
         "open_issues_count": 13,
         "private": false,
-        "stargazers_count": 404,
-        "updated_at": "2021-09-15T20:30:59Z"
+        "stargazers_count": 405,
+        "updated_at": "2021-09-18T21:30:37Z"
     },
     "kosmikoa.nvim": {
         "archived": false,
@@ -5304,10 +5304,10 @@
         "forks_count": 14,
         "full_name": "samrath2007/kyoto.nvim",
         "language": "Lua",
-        "open_issues_count": 1,
+        "open_issues_count": 2,
         "private": false,
         "stargazers_count": 231,
-        "updated_at": "2021-09-18T19:51:50Z"
+        "updated_at": "2021-09-18T23:37:19Z"
     },
     "lapland.nvim": {
         "archived": false,
@@ -5514,10 +5514,10 @@
         "forks_count": 78,
         "full_name": "lite-xl/lite-xl",
         "language": "Lua",
-        "open_issues_count": 94,
+        "open_issues_count": 93,
         "private": false,
-        "stargazers_count": 1432,
-        "updated_at": "2021-09-18T19:56:27Z"
+        "stargazers_count": 1431,
+        "updated_at": "2021-09-18T22:02:15Z"
     },
     "lite-xl-vibe": {
         "archived": false,
@@ -5726,8 +5726,8 @@
         "language": "Lua",
         "open_issues_count": 0,
         "private": false,
-        "stargazers_count": 2,
-        "updated_at": "2021-09-14T04:30:16Z"
+        "stargazers_count": 3,
+        "updated_at": "2021-09-18T22:18:27Z"
     },
     "lspconfigplus.nvim": {
         "archived": false,
@@ -5847,7 +5847,7 @@
         "open_issues_count": 1,
         "private": false,
         "stargazers_count": 115,
-        "updated_at": "2021-09-18T00:28:19Z"
+        "updated_at": "2021-09-19T00:30:49Z"
     },
     "lua-client": {
         "archived": false,
@@ -5936,8 +5936,8 @@
         "language": "Lua",
         "open_issues_count": 73,
         "private": false,
-        "stargazers_count": 892,
-        "updated_at": "2021-09-18T19:57:50Z"
+        "stargazers_count": 893,
+        "updated_at": "2021-09-18T22:45:04Z"
     },
     "lua-supercollider-snippets": {
         "archived": false,
@@ -6006,13 +6006,13 @@
         "default_branch": "master",
         "description": "A blazing fast and easy to configure neovim statusline plugin written in pure lua.",
         "fork": false,
-        "forks_count": 90,
+        "forks_count": 93,
         "full_name": "hoob3rt/lualine.nvim",
         "language": "Lua",
         "open_issues_count": 40,
         "private": false,
-        "stargazers_count": 684,
-        "updated_at": "2021-09-18T19:19:19Z"
+        "stargazers_count": 685,
+        "updated_at": "2021-09-18T23:19:24Z"
     },
     "luatab.nvim": {
         "archived": false,
@@ -6237,7 +6237,7 @@
         "open_issues_count": 1,
         "private": false,
         "stargazers_count": 10,
-        "updated_at": "2021-09-17T10:00:42Z"
+        "updated_at": "2021-09-19T00:00:17Z"
     },
     "mdeval.nvim": {
         "archived": false,
@@ -6281,8 +6281,8 @@
         "language": "Lua",
         "open_issues_count": 1,
         "private": false,
-        "stargazers_count": 118,
-        "updated_at": "2021-09-17T17:28:28Z"
+        "stargazers_count": 119,
+        "updated_at": "2021-09-19T00:44:57Z"
     },
     "microcontroller-nvim": {
         "archived": false,
@@ -6642,7 +6642,7 @@
         "open_issues_count": 3,
         "private": false,
         "stargazers_count": 74,
-        "updated_at": "2021-09-17T08:24:49Z"
+        "updated_at": "2021-09-19T00:18:54Z"
     },
     "neofs": {
         "archived": false,
@@ -6746,8 +6746,8 @@
         "language": "Lua",
         "open_issues_count": 19,
         "private": false,
-        "stargazers_count": 1394,
-        "updated_at": "2021-09-18T13:03:51Z"
+        "stargazers_count": 1396,
+        "updated_at": "2021-09-18T22:37:27Z"
     },
     "neorg-telescope": {
         "archived": false,
@@ -7044,10 +7044,10 @@
         "forks_count": 3,
         "full_name": "Shatur/neovim-session-manager",
         "language": "Lua",
-        "open_issues_count": 0,
+        "open_issues_count": 1,
         "private": false,
-        "stargazers_count": 18,
-        "updated_at": "2021-09-17T08:42:19Z"
+        "stargazers_count": 19,
+        "updated_at": "2021-09-18T22:59:24Z"
     },
     "neovim-ui": {
         "archived": false,
@@ -7242,7 +7242,7 @@
         "open_issues_count": 0,
         "private": false,
         "stargazers_count": 111,
-        "updated_at": "2021-09-16T14:31:10Z"
+        "updated_at": "2021-09-18T21:21:47Z"
     },
     "nline.nvim": {
         "archived": false,
@@ -7761,7 +7761,7 @@
         "default_branch": "master",
         "description": "Programmatic lua library for setting base16 themes in Neovim.",
         "fork": false,
-        "forks_count": 38,
+        "forks_count": 39,
         "full_name": "norcalli/nvim-base16.lua",
         "language": "Lua",
         "open_issues_count": 3,
@@ -7811,8 +7811,8 @@
         "language": "Lua",
         "open_issues_count": 4,
         "private": false,
-        "stargazers_count": 386,
-        "updated_at": "2021-09-14T23:20:44Z"
+        "stargazers_count": 387,
+        "updated_at": "2021-09-18T21:02:14Z"
     },
     "nvim-bufbar": {
         "archived": false,
@@ -7931,8 +7931,8 @@
         "language": "Lua",
         "open_issues_count": 36,
         "private": false,
-        "stargazers_count": 874,
-        "updated_at": "2021-09-17T16:06:38Z"
+        "stargazers_count": 875,
+        "updated_at": "2021-09-18T21:20:00Z"
     },
     "nvim-commaround": {
         "archived": false,
@@ -7976,8 +7976,8 @@
         "language": "Lua",
         "open_issues_count": 0,
         "private": false,
-        "stargazers_count": 32,
-        "updated_at": "2021-09-16T08:12:22Z"
+        "stargazers_count": 33,
+        "updated_at": "2021-09-18T23:17:38Z"
     },
     "nvim-compe": {
         "archived": false,
@@ -8532,7 +8532,7 @@
         "open_issues_count": 0,
         "private": false,
         "stargazers_count": 15,
-        "updated_at": "2021-09-14T12:39:18Z"
+        "updated_at": "2021-09-18T21:18:00Z"
     },
     "nvim-if-lua-compat": {
         "archived": false,
@@ -8741,8 +8741,8 @@
         "language": "Lua",
         "open_issues_count": 0,
         "private": false,
-        "stargazers_count": 33,
-        "updated_at": "2021-09-18T19:50:14Z"
+        "stargazers_count": 34,
+        "updated_at": "2021-09-18T20:18:34Z"
     },
     "nvim-local-settings": {
         "archived": false,
@@ -8831,8 +8831,8 @@
         "language": "Lua",
         "open_issues_count": 5,
         "private": false,
-        "stargazers_count": 106,
-        "updated_at": "2021-09-18T11:41:28Z"
+        "stargazers_count": 107,
+        "updated_at": "2021-09-18T23:37:59Z"
     },
     "nvim-lsp-smag": {
         "archived": false,
@@ -9101,8 +9101,8 @@
         "language": "Lua",
         "open_issues_count": 9,
         "private": false,
-        "stargazers_count": 66,
-        "updated_at": "2021-09-18T17:08:56Z"
+        "stargazers_count": 67,
+        "updated_at": "2021-09-19T00:38:50Z"
     },
     "nvim-mapper": {
         "archived": false,
@@ -9671,8 +9671,8 @@
         "language": "Lua",
         "open_issues_count": 5,
         "private": false,
-        "stargazers_count": 41,
-        "updated_at": "2021-09-17T02:32:22Z"
+        "stargazers_count": 42,
+        "updated_at": "2021-09-18T20:38:44Z"
     },
     "nvim-sourcerer": {
         "archived": false,
@@ -9866,8 +9866,8 @@
         "language": "Lua",
         "open_issues_count": 0,
         "private": false,
-        "stargazers_count": 18,
-        "updated_at": "2021-09-09T02:31:15Z"
+        "stargazers_count": 19,
+        "updated_at": "2021-09-19T00:31:09Z"
     },
     "nvim-tree-docs": {
         "archived": false,
@@ -10749,10 +10749,10 @@
         "forks_count": 18,
         "full_name": "kristijanhusak/orgmode.nvim",
         "language": "Lua",
-        "open_issues_count": 17,
+        "open_issues_count": 18,
         "private": false,
-        "stargazers_count": 687,
-        "updated_at": "2021-09-17T21:02:08Z"
+        "stargazers_count": 690,
+        "updated_at": "2021-09-18T23:33:15Z"
     },
     "origin.nvim": {
         "archived": false,
@@ -10809,7 +10809,7 @@
         "forks_count": 61,
         "full_name": "wbthomason/packer.nvim",
         "language": "Lua",
-        "open_issues_count": 122,
+        "open_issues_count": 123,
         "private": false,
         "stargazers_count": 1376,
         "updated_at": "2021-09-18T20:13:28Z"
@@ -11199,10 +11199,10 @@
         "forks_count": 5,
         "full_name": "ahmedkhalf/project.nvim",
         "language": "Lua",
-        "open_issues_count": 4,
+        "open_issues_count": 2,
         "private": false,
         "stargazers_count": 151,
-        "updated_at": "2021-09-18T14:55:04Z"
+        "updated_at": "2021-09-18T23:37:39Z"
     },
     "projectcmd.nvim": {
         "archived": false,
@@ -11441,8 +11441,8 @@
         "language": "Lua",
         "open_issues_count": 23,
         "private": false,
-        "stargazers_count": 456,
-        "updated_at": "2021-09-18T15:14:32Z"
+        "stargazers_count": 457,
+        "updated_at": "2021-09-18T21:12:12Z"
     },
     "registers.nvim": {
         "archived": false,
@@ -11472,7 +11472,7 @@
         "open_issues_count": 0,
         "private": false,
         "stargazers_count": 1,
-        "updated_at": "2021-09-18T10:34:47Z"
+        "updated_at": "2021-09-18T21:06:44Z"
     },
     "replacer.nvim": {
         "archived": false,
@@ -13026,13 +13026,13 @@
         "default_branch": "master",
         "description": "Find, Filter, Preview, Pick. All lua, all the time.",
         "fork": false,
-        "forks_count": 242,
+        "forks_count": 243,
         "full_name": "nvim-telescope/telescope.nvim",
         "language": "Lua",
-        "open_issues_count": 187,
+        "open_issues_count": 189,
         "private": false,
-        "stargazers_count": 3414,
-        "updated_at": "2021-09-18T19:33:53Z"
+        "stargazers_count": 3417,
+        "updated_at": "2021-09-18T23:34:54Z"
     },
     "telescope_hoogle": {
         "archived": false,
@@ -13331,8 +13331,8 @@
         "language": "Lua",
         "open_issues_count": 16,
         "private": false,
-        "stargazers_count": 440,
-        "updated_at": "2021-09-18T17:53:55Z"
+        "stargazers_count": 441,
+        "updated_at": "2021-09-18T22:39:28Z"
     },
     "toggleTest.nvim": {
         "archived": false,
@@ -13541,8 +13541,8 @@
         "language": "Lua",
         "open_issues_count": 2,
         "private": false,
-        "stargazers_count": 76,
-        "updated_at": "2021-09-17T17:18:14Z"
+        "stargazers_count": 77,
+        "updated_at": "2021-09-18T23:56:57Z"
     },
     "trex.nvim": {
         "archived": false,
@@ -13602,7 +13602,7 @@
         "open_issues_count": 1,
         "private": false,
         "stargazers_count": 4,
-        "updated_at": "2021-09-18T19:00:36Z"
+        "updated_at": "2021-09-18T22:44:32Z"
     },
     "twilight.nvim": {
         "archived": false,
@@ -13616,8 +13616,8 @@
         "language": "Lua",
         "open_issues_count": 5,
         "private": false,
-        "stargazers_count": 230,
-        "updated_at": "2021-09-16T22:13:39Z"
+        "stargazers_count": 231,
+        "updated_at": "2021-09-18T21:11:01Z"
     },
     "typeSpeedNvim": {
         "archived": false,
@@ -13749,10 +13749,10 @@
         "forks_count": 1,
         "full_name": "tanvirtin/vgit.nvim",
         "language": "Lua",
-        "open_issues_count": 13,
+        "open_issues_count": 12,
         "private": false,
         "stargazers_count": 154,
-        "updated_at": "2021-09-18T19:42:02Z"
+        "updated_at": "2021-09-18T23:32:27Z"
     },
     "vim": {
         "archived": false,
@@ -13767,7 +13767,7 @@
         "open_issues_count": 0,
         "private": false,
         "stargazers_count": 11,
-        "updated_at": "2021-09-18T00:53:27Z"
+        "updated_at": "2021-09-19T00:55:52Z"
     },
     "vim-chtsh": {
         "archived": false,
@@ -14381,8 +14381,8 @@
         "language": "Lua",
         "open_issues_count": 0,
         "private": false,
-        "stargazers_count": 98,
-        "updated_at": "2021-09-18T08:30:48Z"
+        "stargazers_count": 100,
+        "updated_at": "2021-09-19T00:36:07Z"
     },
     "windowmode.nvim": {
         "archived": false,
@@ -14486,8 +14486,8 @@
         "language": "Lua",
         "open_issues_count": 0,
         "private": false,
-        "stargazers_count": 14,
-        "updated_at": "2021-09-16T21:20:01Z"
+        "stargazers_count": 15,
+        "updated_at": "2021-09-18T22:27:24Z"
     },
     "xresources-nvim": {
         "archived": false,

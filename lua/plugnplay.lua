@@ -23,7 +23,7 @@ function plugnplay.read_plugins(location)
         }]]
     )
 
-    return json.decode(content)
+    -- return json.decode(content)
 end
 
 function plugnplay.startup(config_location)

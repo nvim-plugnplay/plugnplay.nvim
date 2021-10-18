@@ -26,7 +26,6 @@ with open("database.json", "+w") as file:
             # Extract only the data that we need
             plugin_data = {}
             plugin_name = ""
-            plugin_commit_data = {}
 
             wanted_fields = ["full_name", "description", "default_branch", "fork", "archived", "private", "clone_url", "commits_url", "created_at", "updated_at", "stargazers_count", "subscribers_count", "forks_count", "language", "open_issues_count", "topics", "owner"]
 
@@ -39,13 +38,12 @@ with open("database.json", "+w") as file:
             if "commits_url" in plugin_data:
                 commit_req = requests.get(plugin_data["commits_url"][:-6], auth=(client_id, client_secret))
                 commit = commit_req.json()[-1]
-                plugin_commit_data["sha"] = commit["sha"]
-                plugin_commit_data["commit_author"] = commit["commit"]["author"]
+                plugin_data["commit"] = commit["sha"]
 
             # Remove unneeded stuff from plugin data and merge plugin and commit data
             del plugin_data["commits_url"]
             plugin_data = { **plugin_data }
-            plugins = { **plugins, f"{plugin_name}": { **plugin_data, "commit": { **plugin_commit_data } } }
+            plugins = { **plugins, f"{plugin_name}": { **plugin_data } }
             print("Parsed", plugin_data["full_name"])
         if not 'next' in req.links:
             break

@@ -14,8 +14,7 @@
     @code jsonc
     {
       "plugnplay": {}, // for plugnplay config
-      "plugins": { // for plugins
-      }
+      "plugins": {} // for plugins
     }
     @end
   *** Plugins Table

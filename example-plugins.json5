@@ -1,0 +1,25 @@
+{
+    /*
+        This is where you declare all your plugins, all your plugin specs goes here.
+        Every plugin is an object, that means, every plugin is declared in the following way
+
+        "plugin_name": {
+            "url": "plugin_author_name/plugin_repository",
+            "opt": false,
+            "configuration": {
+                // ...
+            }
+        }
+
+        Only "url" key is required, all other keys are optionals. You can take a look at
+        the valid keys in our documentation. Refer to ':h plugman-plugin-specs'
+    */
+
+    "plugman": {
+        "url": "vhyrro/generic-neovim-plugin-manager",
+        "opt": true,
+        "configuration": {
+            "database": "/some/location"
+        }
+    }
+}

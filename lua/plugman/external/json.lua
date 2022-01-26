@@ -1,5 +1,3 @@
--- TODO: Error checking
-
 local scanner = {
     initialize_new = function(self, source)
         self.source = source
@@ -56,8 +54,13 @@ local scanner = {
     end,
 
     skip_whitespace = function(self)
-        while self:lookahead():match("%s") do
-            self:skip()
+        if self:lookahead() ~= nil then
+            -- Let's move back again after checking for EOF so we
+            -- will avoid errors when checking around EOF again
+            self:lookbehind()
+            while self:lookahead():match("%s") do
+                self:skip()
+            end
         end
     end,
 
@@ -83,75 +86,88 @@ local scanner = {
     end,
 }
 
-local log = require("plugman.external.log")
 local json = {}
 
 function json.decode(source)
+    local source_without_comments
+
     scanner:initialize_new(source)
 
-    do -- Perform preprocessing
-        local preprocessed_source = ""
+    local function skip_comment()
+        if scanner:lookahead() == "/" and scanner:lookahead(2) == "/" then
+            while scanner:lookahead() and scanner:lookahead() ~= "\n" do
+                scanner:skip()
+            end
+        end
+    end
+
+    local function skip_multiline_comment()
+        if scanner:lookahead() == "/" and scanner:lookahead(2) == "*" then
+            while scanner:lookahead() do
+                if scanner:lookahead() == "*" and scanner:lookahead(2) == "/" then
+                    scanner:skip() -- skip '*'
+                    scanner:skip() -- skip '/'
+                    return
+                end
+                scanner:skip()
+             end
+        end
+    end
+
+    do -- Perform preprocessing to skip comments from json file
+        -- local preprocessed_source = ""
 
         while scanner:lookahead() do
-            if scanner:lookahead() == "/" and scanner:lookahead(2) == "/" then
-                while scanner:lookahead() and scanner:lookahead() ~= "\n" do
-                    scanner:skip()
-                end
-            end
+            -- Skip one-line comments
+            skip_comment()
+
+            -- Skip multi-line comments (does not allow nested comments!)
+            skip_multiline_comment()
 
             scanner:advance()
         end
 
-        scanner:initialize_new(scanner:mark_end())
+        source_without_comments = scanner:mark_end()
+        scanner:initialize_new(source_without_comments)
         scanner:end_session()
     end
 
-    local function decode_error(message)
-
-    end
-
-    local function parse_pair()
-        if scanner:lookahead() ~= "\"" then
-            log.error("Syntax stuff yada yada")
-            return
-        end
-
-        scanner:skip()
-
-        while scanner:lookahead() ~= "\"" and scanner:current() ~= "\\" do
-            scanner:advance()
-        end
-
-        scanner:skip()
-
-        local key = scanner:mark_end()
-        log.warn(key)
-    end
-
-    local function parse_object()
-        if scanner:lookahead() == "{" then
-            log.error("Error")
-            return
-        end
-
-        scanner:skip()
-        scanner:skip_whitespace()
-
-        return parse_pair()
-    end
-
-    return parse_object()
+    return vim.json.decode(source_without_comments)
 end
 
-function test()
-    json.decode([[
-    {
-        // Test number 1
-        "test 1": "something cool", // Test number 2
-        "test2": 30.2
-        // Test number 3
-    }
+function json.encode(source)
+    return vim.json.encode(source)
+end
+
+local function test_decode()
+    return json.decode([[
+{
+    // Test number 1
+    "test 1": "something cool", // Test number 2
+    "test2": 30.2
+    // Test number 3
+    /*
+        This is a multi-line
+        comment, everyone gotta love me!
+    */
+}
     ]])
 end
+
+local function test_encode()
+    return json.encode({
+        -- Test number 1
+        ["test 1"] = "something cool", -- Test number 2
+        ["test2"] = 30.2,
+        -- Test number 3
+        --[[
+            This is a multi-line
+            comment, everyone gotta love me!
+        ]]
+    })
+end
+
+-- vim.notify(vim.inspect(test_decode()))
+-- vim.notify(vim.inspect(test_encode()))
 
 return json

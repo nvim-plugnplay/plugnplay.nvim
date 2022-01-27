@@ -30,16 +30,32 @@
           "impatient": "lewis6991/impatient.nvim"
         }  
       @end
+      There are some more options to configure your plugin.
+      To use them you need to use a table as a value for the plugin. /notice that all the keys are optional/
+      @code jsonc
+        "plugins": {
+          "impatient": {
+            "lewis6991/impatient.nvim",
+            "config": "require'impatient'.setup()", // lua string that gets runned when loading the plugin
+            "config_file": "config/impatient", // requires the file specified (`require"config.impatient` will be executed) when the plugin gets loaded
+            "load": {
+              "with": "nvim-cmp", // load the plugin when the specified plugin gets loaded
+              "maps": "<leader>x", // load the plugin when the map gets used (this can also be a table)
+              "command": "NvimTree{Toggle,Open,Close}" // load the plugin when one of the commands (start combined with each of the values inside {})
+              "event": "InsertEnter" // autocmd event on which the plugin gets loaded
+            }
+          }
+        }  
+      @end
+      
   *** Plugnplay table
-
+      
 * Plugins
   Every plugin should have a `plugins.json` file. In this file there are setting with which the plugin can be automatically set up with the defaults.
   The structure of the file is like this:
   @code jsonc
-    {
       "setup": {
         "module": "module_name", // name of the module where the setup function is
         "function": "function_name" // name of the setup function (defaults to `setup`)
       },
-    }
   @end

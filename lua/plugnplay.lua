@@ -17,17 +17,18 @@ function plugnplay.read_plugins(location)
     local content = fs.read_or_create(
         location,
         [[{
-            "auto": {},
-            "plugins": {},
-            "custom": {}
-        }]]
+    // plugnplay configurations goes here
+    "plugnplay": {},
+    // your plugins goes here
+    "plugins": {}
+}]]
     )
 
-    -- return json.decode(content)
+    return json.decode(content)
 end
 
 function plugnplay.startup(config_location)
-    local location = config_location or vim.fn.stdpath("config") .. "/plugins.json"
+    local location = config_location or vim.fn.stdpath("config") .. "/cfg.json"
 
     local decoded_json = plugnplay.read_plugins(location)
 

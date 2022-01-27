@@ -1,0 +1,39 @@
+@document.meta
+        title: ideas
+        description: Ideas for plugnplay
+        authors: plugnplay-devs
+        categories: 
+        created: 2022-01-27
+        version: 0.0.9
+@end
+
+* Simple things
+  - Better format for `command` lazy-loading
+  -- Regex (perhaps not possible)
+  -- Things like: `NvimTree{Open,Close,Toggle}`
+  - Option to follow latest release
+  - Optional dependencies (lazy-loaded until needed by plugin)
+  - Option to "force-pull" on update (can handle rebases)
+  - Automatically install plugnplay if not found
+  - See diff of files when updating
+  - Easy way to go back to state before updating
+  - Function to check if/how many updates are available
+  - Temporary plugins/easy was to install remove (no need to comment, clean and compile like in packer) for testing out new plugins
+  ~~ Select plugin you want to install
+  ~~ Test it out
+  ~~ Decide if you want to keep it (will be added to `cfg` automatically)
+  - Support disabling by filetype (also enabling, like some plugins do rn but some don't)
+
+* Big Features
+ ** Modules
+    Modules provide an ootb experience for more than one plugin only.
+    Multiple plugins will automatically installed and configured. The configuration is exposed so users can modify only parts of it (don't have to do /everything/ themself).
+    Examples for modules could be:
+    - Completion and Snippets: nvim-cmp, lua-snip, cmp sources, snippet sources and config to set up cmp with luasnip as source. This would for example expose the mapping to expose snippets (expose everything but this is sth users would likely configure)
+    - Lsp and Diagnostics: nvim-lspconfig with setup for some popular servers, nice config for diagnostics etc, plugins for better code actions, references etc
+ ** `load` for lazy-loading
+    This is a table which can be in every plugin config. It has keys similar to the ones packer has.
+    Examples would be:
+    - `command`: load the plugin when using a certain command
+    - `event`: load the plugin on a certain autocmd event
+    - `keys`: load the plugin when keys are used

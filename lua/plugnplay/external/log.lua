@@ -9,14 +9,11 @@
 -- User configuration section
 local default_config = {
     -- Name of the plugin. Prepended to log messages
-    plugin = "plugman",
+    plugin = "plugnplay",
 
     -- Should print the output to neovim while running
     -- values: 'sync','async',false
     use_console = "async",
-
-    -- Should highlighting be used in console (using echohl)
-    highlights = true,
 
     -- Should write to a file
     use_file = true,
@@ -26,12 +23,11 @@ local default_config = {
 
     -- Level configuration
     modes = {
-        { name = "trace", hl = "Comment" },
-        { name = "debug", hl = "Comment" },
-        { name = "info", hl = "None" },
-        { name = "warn", hl = "WarningMsg" },
-        { name = "error", hl = "ErrorMsg" },
-        { name = "fatal", hl = "ErrorMsg" },
+        { name = "trace", level = vim.log.levels.TRACE },
+        { name = "debug", level = vim.log.levels.DEBUG },
+        { name = "info", level = vim.log.levels.INFO },
+        { name = "warn", level = vim.log.levels.WARN },
+        { name = "error", level = vim.log.levels.ERROR },
     },
 
     -- Can limit the number of decimals displayed for floats
@@ -100,22 +96,14 @@ log.new = function(config, standalone)
             local log_to_console = function()
                 local console_string = string.format("[%-6s%s] %s: %s", nameupper, os.date("%H:%M:%S"), lineinfo, msg)
 
-                if config.highlights and level_config.hl then
-                    vim.cmd(string.format("echohl %s", level_config.hl))
-                end
-
                 local split_console = vim.split(console_string, "\n")
                 for _, v in ipairs(split_console) do
-                    local formatted_msg = string.format("[%s] %s", config.plugin, vim.fn.escape(v, [["\]]))
+                    local formatted_msg = string.format("[%s] %s", config.plugin, v) -- vim.fn.escape(v, [["\]]))
 
-                    local ok = pcall(vim.cmd, string.format([[echom "%s"]], formatted_msg))
+                    local ok = pcall(vim.notify, string.format("%s", formatted_msg), level_config.level)
                     if not ok then
                         vim.api.nvim_out_write(msg .. "\n")
                     end
-                end
-
-                if config.highlights and level_config.hl then
-                    vim.cmd("echohl NONE")
                 end
             end
             if config.use_console == "sync" and not vim.in_fast_event() then

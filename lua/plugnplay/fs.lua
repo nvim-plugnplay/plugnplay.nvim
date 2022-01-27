@@ -1,5 +1,8 @@
 local fs = {}
 
+---Check if file exists
+---@param location string The location of the file
+---@return boolean exists Whether the file exists or not
 function fs.file_exists(location)
     local fd = vim.loop.fs_open(location, "r", 438)
     if fd then
@@ -22,6 +25,9 @@ function fs.write_file(location, mode, contents)
     end)
 end
 
+---Reads or creates from a file
+---@param location string The location of the file
+---@param default string The contents to write to the file if it doesn't exist
 function fs.read_or_create(location, default)
     local content
     if fs.file_exists(location) then

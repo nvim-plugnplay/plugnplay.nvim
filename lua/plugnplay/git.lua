@@ -1,6 +1,5 @@
 local git = {}
 
-local fs = require("plugnplay.fs")
 local log = require("plugnplay.external.log")
 local async = require("plugnplay.external.async")
 
@@ -17,6 +16,7 @@ function git.exec(opts)
             opts.err(err, data)
         end
     })
+    log.debug("Executing 'git " .. opts.cmd .. "' ...")
     exec_cmd:start()
 end
 

@@ -1,4 +1,3 @@
-<img src="res/plugnplay.svg" width=315>
 # plugnplay.nvim
 ### The the ultimative neovim plugin ecosystem
 

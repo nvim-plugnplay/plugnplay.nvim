@@ -33,7 +33,7 @@ local plugnplay = require("plugnplay")
 ```
 
 ## Configuration
-You configure plugins in the `cfg.json` file.
+You configure plugins in the `cfg.jsonc` file.
 The structure of a config is like this:
 
 ```jsonc

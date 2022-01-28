@@ -110,7 +110,7 @@ function json.decode(source)
                     return
                 end
                 scanner:skip()
-             end
+            end
         end
     end
 

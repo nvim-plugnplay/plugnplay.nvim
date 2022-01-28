@@ -139,6 +139,88 @@ function json.encode(source)
     return vim.json.encode(source)
 end
 
+local function make_indent(n)
+    return ("\t"):rep(n)
+end
+
+function json.beautify(str)
+    local beauty_json = ""
+    local indent_level = 0
+    local is_start_line = false
+    local has_next_element = false
+
+    for i = 1, #str - 1 do
+        local curr_c = str:sub(i, i)
+        local next_c = str:sub(i + 1, i + 1)
+
+        if curr_c == "{" then
+            -- Empty object
+            if next_c == "}" then
+                beauty_json = beauty_json .. curr_c
+            else
+                beauty_json = beauty_json .. curr_c .. "\n"
+                indent_level = indent_level + 1
+                is_start_line = true
+            end
+        elseif curr_c == "}" then
+            if next_c == "," then
+                beauty_json = beauty_json .. curr_c
+            elseif next_c == "}" then
+                indent_level = indent_level - 1
+                beauty_json = beauty_json .. curr_c .. "\n" .. make_indent(indent_level)
+            else
+                indent_level = indent_level - 1
+                beauty_json = beauty_json .. "\n" .. curr_c .. "\n"
+            end
+            is_start_line = true
+        elseif curr_c == "," then
+            is_start_line = true
+            if next_c == " " then
+                has_next_element = true
+            end
+            beauty_json = beauty_json .. curr_c .. "\n"
+        else
+            if is_start_line then
+                is_start_line = false
+                if has_next_element then
+                    curr_c = curr_c:gsub(" ", "")
+                    has_next_element = false
+                end
+                beauty_json = beauty_json .. make_indent(indent_level) .. curr_c
+            else
+                if curr_c == "[" then
+                    -- Empty array
+                    if next_c == "]" then
+                        beauty_json = beauty_json .. curr_c
+                    else
+                        is_start_line = true
+                        indent_level = indent_level + 1
+                        beauty_json = beauty_json .. curr_c .. "\n"
+                    end
+                elseif curr_c == "]" then
+                    if next_c ~= "," then
+                        indent_level = indent_level - 1
+                        beauty_json = beauty_json .. "\n" .. make_indent(indent_level) .. curr_c .. "\n"
+                    else
+                        is_start_line = true
+                        indent_level = indent_level - 1
+                        beauty_json = beauty_json .. "\n" .. make_indent(indent_level) .. curr_c
+                    end
+                elseif curr_c == ":" and next_c ~= " " then
+                    beauty_json = beauty_json .. curr_c .. " "
+                elseif curr_c == '"' and next_c == "}" or curr_c:find("%w") and next_c == "}" then
+                    indent_level = indent_level - 1
+                    beauty_json = beauty_json .. curr_c .. "\n" .. make_indent(indent_level)
+                else
+                    beauty_json = beauty_json .. curr_c
+                end
+            end
+        end
+    end
+    beauty_json = beauty_json .. str:sub(#str, #str)
+    return beauty_json
+end
+
 local function test_decode()
     return json.decode([[
 {

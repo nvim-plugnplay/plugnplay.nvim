@@ -1,12 +1,12 @@
 local git = {}
 
 local log = require("plugnplay.external.log")
-local async = require("plugnplay.external.async")
+local jobs = require("plugnplay.external.jobs")
 
 --- Executes a git command and gets the output
 --- @param opts table
 function git.exec(opts)
-    local exec_cmd = async:new({
+    local exec_cmd = jobs:new({
         cmd = "git " .. opts.cmd,
         cwd = opts.cwd,
         on_stdout = function(_, data)

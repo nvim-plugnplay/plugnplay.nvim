@@ -29,10 +29,12 @@ function plugnplay.read_plugins(location)
 end
 
 function plugnplay.startup(config_location)
+    -- Make required plugnplay directories, e.g. '~/.cache/nvim/pnp'
+    fs.make_pnp_dirs()
+
     local location = config_location or table.concat({ vim.fn.stdpath("config"), "cfg.jsonc" }, fs.system_separator)
 
     local decoded_json = plugnplay.read_plugins(location)
-
     plugnplay.setup(decoded_json)
 end
 
@@ -151,10 +153,14 @@ Execute :messages to see the full output.
         end
     end
 
-    fs.write_file(plugnplay.config.plugnplay.lockfile, "w+", json.encode(compiled))
+    -- Manually remove that weird vim.json.encode '/' escaping
+    local lockfile_content = json.encode(compiled):gsub("\\/", "/")
+    fs.write_file(plugnplay.config.plugnplay.lockfile, "w+", json.beautify(lockfile_content))
     return compiled
 end
 
-function plugnplay.sync() end
+function plugnplay.sync()
+
+end
 
 return plugnplay

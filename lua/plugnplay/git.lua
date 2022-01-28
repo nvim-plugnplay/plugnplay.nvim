@@ -14,7 +14,7 @@ function git.exec(opts)
         end,
         on_stderr = function(err, data)
             opts.err(err, data)
-        end
+        end,
     })
     log.debug("Executing 'git " .. opts.cmd .. "' ...")
     exec_cmd:start()

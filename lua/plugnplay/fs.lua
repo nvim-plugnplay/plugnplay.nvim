@@ -12,7 +12,7 @@ local pnp_pack_path = table.concat({ nvim_pack_path, "pnp" }, fs.system_separato
 fs.pnp_paths = {
     cache = table.concat({ vim.fn.stdpath("cache"), "pnp" }, fs.system_separator),
     opt = table.concat({ pnp_pack_path, "opt" }, fs.system_separator),
-    start = table.concat({ pnp_pack_path, "start" }, fs.system_separator)
+    start = table.concat({ pnp_pack_path, "start" }, fs.system_separator),
 }
 
 function fs.make_pnp_dirs()

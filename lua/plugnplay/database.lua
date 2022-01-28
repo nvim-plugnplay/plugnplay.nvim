@@ -29,7 +29,7 @@ function database.fetch()
 
     fetch_opts.cmd = table.concat({
         fetch_opts.cmd,
-        "https://raw.githubusercontent.com/nvim-plugnplay/database/main/database.json"
+        "https://raw.githubusercontent.com/nvim-plugnplay/database/main/database.json",
     }, " ")
 
     log.info("Fetching plugnplay plugins database, please wait ...")

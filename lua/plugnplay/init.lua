@@ -159,8 +159,6 @@ Execute :messages to see the full output.
     return compiled
 end
 
-function plugnplay.sync()
-
-end
+function plugnplay.sync() end
 
 return plugnplay

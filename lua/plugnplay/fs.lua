@@ -1,17 +1,17 @@
 local fs = {}
 
 -- Get the system separator, '/' for *nix and '\\' for Windows
-local system_separator = package.config:sub(1, 1)
+fs.system_separator = package.config:sub(1, 1)
 
 -- Neovim pack path, refer to ':h packages'
-local nvim_pack_path = table.concat({ vim.fn.stdpath("data"), "site", "pack" }, system_separator)
+local nvim_pack_path = table.concat({ vim.fn.stdpath("data"), "site", "pack" }, fs.system_separator)
 
 fs.pnp_paths = {
-    pack = table.concat({ nvim_pack_path, "pnp" }, system_separator),
+    pack = table.concat({ nvim_pack_path, "pnp" }, fs.system_separator),
 }
-fs.pnp_paths.opt = table.concat({ fs.pnp_paths.pack, "opt" }, system_separator)
--- NOTE: start isn't a first-class citizen here, will be proably removed later
-fs.pnp_paths.start = table.concat({ fs.pnp_paths.pack, "start" }, system_separator)
+fs.pnp_paths.opt = table.concat({ fs.pnp_paths.pack, "opt" }, fs.system_separator)
+-- NOTE: start isn't a first-class citizen here, will be probably removed later
+fs.pnp_paths.start = table.concat({ fs.pnp_paths.pack, "start" }, fs.system_separator)
 
 function fs.file_exists(location)
     local fd = vim.loop.fs_open(location, "r", 438)

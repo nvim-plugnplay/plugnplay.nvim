@@ -7,10 +7,11 @@ local plugnplay = {
     config = {
         plugnplay = {
             log = {},
-            lockfile = vim.fn.stdpath("data") .. "/plugnplay.lock.json",
+            lockfile = table.concat({ vim.fn.stdpath("data"), "pnp.lock.json" }, fs.system_separator),
         },
+        plugins = {},
     },
-    lockfile_content = "",
+    lockfile_content = "{}",
 }
 
 function plugnplay.read_plugins(location)
@@ -28,7 +29,7 @@ function plugnplay.read_plugins(location)
 end
 
 function plugnplay.startup(config_location)
-    local location = config_location or vim.fn.stdpath("config") .. "/cfg.json"
+    local location = config_location or table.concat({ vim.fn.stdpath("config"), "cfg.jsonc" }, fs.system_separator)
 
     local decoded_json = plugnplay.read_plugins(location)
 
@@ -150,7 +151,7 @@ Execute :messages to see the full output.
         end
     end
 
-    -- fs.write_file(plugnplay.config.plugnplay.lockfile, "w+", json.beautify(json.encode(compiled)))
+    fs.write_file(plugnplay.config.plugnplay.lockfile, "w+", json.encode(compiled))
     return compiled
 end
 

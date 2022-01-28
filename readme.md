@@ -1,10 +1,14 @@
 # plugnplay.nvim
-### The the ultimative neovim plugin manager
+### The the ultimative neovim plugin ecosystem
 
 ## ✨Features 
-- Install Plugins easily
-- Cofiguration in a .json file
-- Detect "dead" plugins
+- Install plugins easily
+- Configuration in a `.json` file
+- Sane defaults for plugins
+- Automatically set up plugins by only giving a repo adress
+
+## Planed Features
+- Detect "dead" plugins automatically
 
 
 ## 📦Installation
@@ -25,11 +29,11 @@ end
 
 -- Load plugnplay
 vim.cmd([[ packadd plugnplay.nvim ]])
-local packer = require("plugnplay")
+local plugnplay = require("plugnplay")
 ```
 
 ## Configuration
-You configure plugins in the cfg.json file.
+You configure plugins in the `cfg.jsonc` file.
 The structure of a config is like this:
 
 ```jsonc

@@ -158,27 +158,40 @@ function json.beautify(str)
             if next_c == "}" then
                 beauty_json = beauty_json .. curr_c
             else
-                beauty_json = beauty_json .. curr_c .. "\n"
-                indent_level = indent_level + 1
-                is_start_line = true
+                if not next_c:match("%w") then
+                    beauty_json = beauty_json .. curr_c .. "\n"
+                    indent_level = indent_level + 1
+                    is_start_line = true
+                else
+                    beauty_json = beauty_json .. curr_c
+                end
             end
         elseif curr_c == "}" then
+            is_start_line = true
             if next_c == "," then
                 beauty_json = beauty_json .. curr_c
             elseif next_c == "}" then
                 indent_level = indent_level - 1
                 beauty_json = beauty_json .. curr_c .. "\n" .. make_indent(indent_level)
             else
-                indent_level = indent_level - 1
-                beauty_json = beauty_json .. "\n" .. curr_c .. "\n"
+                if not next_c:match("%w") and not next_c:match('"') then
+                    indent_level = indent_level - 1
+                    beauty_json = beauty_json .. "\n" .. curr_c .. "\n"
+                else
+                    beauty_json = beauty_json .. curr_c
+                    is_start_line = false
+                end
             end
-            is_start_line = true
         elseif curr_c == "," then
-            is_start_line = true
-            if next_c == " " then
-                has_next_element = true
+            if not next_c:match("%w") then
+                is_start_line = true
+                if next_c == " " then
+                    has_next_element = true
+                end
+                beauty_json = beauty_json .. curr_c .. "\n"
+            else
+                beauty_json = beauty_json .. curr_c
             end
-            beauty_json = beauty_json .. curr_c .. "\n"
         else
             if is_start_line then
                 is_start_line = false
@@ -208,7 +221,7 @@ function json.beautify(str)
                     end
                 elseif curr_c == ":" and next_c ~= " " then
                     beauty_json = beauty_json .. curr_c .. " "
-                elseif curr_c == '"' and next_c == "}" or curr_c:find("%w") and next_c == "}" then
+                elseif curr_c == '"' and next_c == "}" or curr_c:find("%w") and next_c == "}" and str:sub(i + 2, i + 2) ~= '"' then
                     indent_level = indent_level - 1
                     beauty_json = beauty_json .. curr_c .. "\n" .. make_indent(indent_level)
                 else

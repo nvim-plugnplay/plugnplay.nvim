@@ -3,6 +3,8 @@ local fs = require("plugnplay.fs")
 local json = require("plugnplay.json")
 local toa = {}
 
+---Generates table of actions
+---@return table table #Table of Actions
 function toa.generate()
     local table_of_actions = {}
     local location = table.concat({ vim.fn.stdpath("config"), "cfg.jsonc" }, fs.system_separator)
@@ -36,7 +38,5 @@ function toa.generate()
     end
     return table_of_actions
 end
-
-function toa.convert_to_code(action) end
 
 return toa

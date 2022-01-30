@@ -1,15 +1,13 @@
 # plugnplay.nvim
 ### The the ultimative neovim plugin ecosystem
 
-## ✨Features 
+## ✨Planned Features 
 - Install plugins easily
 - Configuration in a `.json` file
 - Sane defaults for plugins
-- Automatically set up plugins by only giving a repo adress
-
-## Planed Features
-- Detect "dead" plugins automatically
-
+- Automatically set up plugins by only giving a repo address
+- Automatically detect "dead" plugins
+- Easy lazy loading
 
 ## 📦Installation
 

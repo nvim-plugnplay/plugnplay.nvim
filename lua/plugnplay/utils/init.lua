@@ -22,4 +22,6 @@ function utils.get_install_action(url)
     return ret
 end
 
+utils.is_windows = jit ~= nil and jit.os == "Windows" or package.config:sub(1, 1) == "\\"
+
 return utils

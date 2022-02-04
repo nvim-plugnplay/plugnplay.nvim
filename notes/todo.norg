@@ -62,3 +62,21 @@
         }
     }
     @end
+
+* TODO
+  - [x] Generate toa
+  - [-] Execute toa
+  -- [x] Install
+  -- [ ] Remove
+  - [ ] Create Commands for Update, Clean, Sync
+  - [ ] set up Plugin manager
+  -- [-] bootstrapping
+  -- [ ] workflow (compiling)
+  - [ ] Lazyloading
+  -- [ ] go through `load` field in cfg
+  -- [ ] set up stuff:
+  --- [ ] commands
+  --- [ ] autocommand
+  --- [ ] mappings
+  --- [ ] modules
+  Check out packer for this stuff

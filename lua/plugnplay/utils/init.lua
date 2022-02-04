@@ -24,4 +24,12 @@ end
 
 utils.is_windows = jit ~= nil and jit.os == "Windows" or package.config:sub(1, 1) == "\\"
 
+function utils.directory_name(url)
+    local fs = require("plugnplay.fs")
+    if url:sub(-1, -1) == fs.system_separator then
+        url = url:sub(1, -2)
+    end
+    return vim.fn.fnamemodify(url, ":t")
+end
+
 return utils

@@ -47,6 +47,8 @@ function plugnplay.setup(configuration)
     plugnplay.lockfile_content = fs.read_or_create(plugnplay.config.plugnplay.lockfile, "{}")
 end
 
+---Updates the lockfile
+---@return table #The compiled json
 function plugnplay.compile()
     local compiled = {}
 

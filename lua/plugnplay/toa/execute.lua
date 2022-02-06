@@ -32,6 +32,21 @@ local function get_install_action(action)
 end
 
 local function action_remove(action)
+    -- doesn't work!!
+    local install_action = get_install_action(action)
+    local path
+    if install_action.action == "local" then
+        path = fs.pnp_paths.opt .. utils.directory_name(action.url)
+    elseif install_action.action == "git_clone" then
+        local split = vim.split(action.url, "/", {
+            trimempty = true,
+        })
+        path = fs.pnp_paths.opt .. split[#split]
+        print(path)
+    else
+        return
+    end
+    -- vim.fn.delete(path, "rf")
     print("removed " .. action.name)
 end
 

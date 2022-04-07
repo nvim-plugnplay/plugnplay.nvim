@@ -7,7 +7,7 @@ local plugnplay = {
     config = {
         plugnplay = {
             log = {},
-            lockfile = table.concat({ vim.fn.stdpath("data"), "pnp.lock.json" }, fs.system_separator),
+            lockfile = table.concat({ vim.fn.stdpath("config"), "pnp.lock.json" }, fs.system_separator),
         },
         plugins = {},
     },

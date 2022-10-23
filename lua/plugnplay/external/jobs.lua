@@ -1,4 +1,5 @@
 --- @class jobs
+--- @diagnostic disable
 local jobs = {}
 
 --- Safely close child processes

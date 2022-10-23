@@ -12,7 +12,7 @@ local default_config = {
     plugin = "plugnplay",
 
     -- Should print the output to neovim while running
-    -- values: 'sync','async',false
+    -- values: 'sync', 'async', false
     use_console = "async",
 
     -- Should write to a file
@@ -37,6 +37,7 @@ local default_config = {
 -- {{{ NO NEED TO CHANGE
 local log = {}
 
+--- @diagnostic disable-next-line
 local unpack = unpack or table.unpack
 
 log.new = function(config, standalone)
@@ -124,11 +125,13 @@ log.new = function(config, standalone)
 
     for i, x in ipairs(config.modes) do
         -- log.info("these", "are", "separated")
+        --- @diagnostic disable-next-line
         obj[x.name] = function(...)
             return log_at_level(i, x, make_string, ...)
         end
 
         -- log.fmt_info("These are %s strings", "formatted")
+        --- @diagnostic disable-next-line
         obj[("fmt_%s"):format(x.name)] = function(...)
             return log_at_level(i, x, function(...)
                 local passed = { ... }
@@ -142,6 +145,7 @@ log.new = function(config, standalone)
         end
 
         -- log.lazy_info(expensive_to_calculate)
+        --- @diagnostic disable-next-line
         obj[("lazy_%s"):format(x.name)] = function()
             return log_at_level(i, x, function(f)
                 return f()
@@ -149,8 +153,10 @@ log.new = function(config, standalone)
         end
 
         -- log.file_info("do not print")
+        --- @diagnostic disable-next-line
         obj[("file_%s"):format(x.name)] = function(vals, override)
             local original_console = config.use_console
+        --- @diagnostic disable-next-line
             config.use_console = false
             config.info_level = override.info_level
             log_at_level(i, x, make_string, unpack(vals))

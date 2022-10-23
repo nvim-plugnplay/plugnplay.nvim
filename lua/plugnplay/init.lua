@@ -28,6 +28,8 @@ function plugnplay.read_plugins(location)
    return json.decode(content)
 end
 
+--- Starts plugnplay and sets up your plugins. Calls `plugnplay.setup` under the hood!
+---@param config_location string|nil Plugnplay configuration file location
 function plugnplay.startup(config_location)
    -- Make required plugnplay directories, e.g. '~/.cache/nvim/pnp'
    fs.make_pnp_dirs()
@@ -47,8 +49,8 @@ function plugnplay.setup(configuration)
    plugnplay.lockfile_content = fs.read_or_create(plugnplay.config.plugnplay.lockfile, "{}")
 end
 
----Updates the lockfile
----@return table #The compiled json
+--- Updates the lockfile
+--- @return table
 function plugnplay.compile()
    local compiled = {}
 
@@ -76,7 +78,7 @@ Execute :messages to see the full output.
                     ]]):format(plugin, plugin),
                   vim.log.levels.ERROR
                )
-               return
+               return {}
             end
 
             if type(data) == "string" then
@@ -126,7 +128,7 @@ Execute :messages to see the full output.
                         ]]):format(helpers.rep(plugin, 7)),
                      vim.log.levels.ERROR
                   )
-                  return
+                  return {}
                end
 
                compiled[plugin] = data
@@ -149,18 +151,19 @@ Execute :messages to see the full output.
                     ]]):format(plugin, plugin, data, type(data)),
                   vim.log.levels.ERROR
                )
-               return
+               return {}
             end
          end
       end
    end
 
-   -- Manually remove that weird vim.json.encode '/' escaping
-   local lockfile_content = json.encode(compiled):gsub("\\/", "/")
+   local lockfile_content = json.encode(compiled)
    fs.write_file(plugnplay.config.plugnplay.lockfile, "w+", json.beautify(lockfile_content))
    return compiled
 end
 
-function plugnplay.sync() end
+function plugnplay.sync()
+  plugnplay.compile()
+end
 
 return plugnplay

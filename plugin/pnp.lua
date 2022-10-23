@@ -5,7 +5,7 @@ local lockfile_contents = fs.read_or_create(plugnplay.config.plugnplay.lockfile,
 local plugins = json.decode(lockfile_contents)
 local log = require("plugnplay.external.log")
 
--- TODO: implement `wants`
+-- TODO: implement `wants`?
 -- TODO: implement `after`
 local function pnp_load(plugin)
     local plug_conf = plugins[plugin]
@@ -17,7 +17,7 @@ local function pnp_load(plugin)
         require(plug_conf.configuration.Module)
     end
     if plug_conf.configuration.Chunk then
-        local success, err = pcall(loadstring(plug_conf.configuration.Chunk))
+        local success, err = pcall(loadstring, plug_conf.configuration.Chunk)
         if not success then
             log.error("Error running config for " .. plugin .. ": " .. err)
         end

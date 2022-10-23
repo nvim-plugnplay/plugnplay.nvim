@@ -1,3 +1,5 @@
+--- Custom JSONC files scanner that removes comments and wraps `vim.json`
+---@class scanner
 local scanner = {
    initialize_new = function(self, source) self.source = source end,
 
@@ -121,7 +123,10 @@ function json.decode(source)
    return vim.json.decode(source_without_comments)
 end
 
-function json.encode(source) return vim.json.encode(source) end
+function json.encode(source)
+  -- Manually remove that weird vim.json.encode '/' escaping
+  return vim.json.encode(source):gsub("\\/", "/")
+end
 
 local function make_indent(n) return ("\t"):rep(n) end
 
@@ -217,6 +222,7 @@ function json.beautify(str)
    return beauty_json
 end
 
+---@diagnostic disable-next-line
 local function test_decode()
    return json.decode([[
 {
@@ -232,6 +238,7 @@ local function test_decode()
     ]])
 end
 
+---@diagnostic disable-next-line
 local function test_encode()
    return json.encode({
       -- Test number 1
@@ -245,7 +252,7 @@ local function test_encode()
    })
 end
 
--- vim.notify(vim.inspect(test_decode()))
--- vim.notify(vim.inspect(test_encode()))
+-- vim.notify_once(vim.inspect(test_decode()))
+-- vim.notify_once(vim.inspect(test_encode()))
 
 return json

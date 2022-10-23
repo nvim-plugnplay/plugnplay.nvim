@@ -1,3 +1,4 @@
+--- @class helpers
 local helpers = {}
 
 ---Repeats a value `x` times
@@ -16,6 +17,7 @@ end
 function helpers.is_minimum_version(major, minor, patch)
    local version = vim.version()
 
+   --- @diagnostic disable-next-line
    return major <= version.major and minor <= version.minor and patch <= version.patch
 end
 

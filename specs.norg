@@ -1,45 +1,41 @@
-@document.meta
-        title: specs
-        description: 
-        authors: plugnplay-team
-        categories: 
-        created: 2022-01-26
-        version: 0.0.9
-@end
-
 * Configuration
   You put your configs inside `cfg.json` in the folder where your neovim config is.
- ** Structure
-    Inside this json file there will be a table with two main keys.
+
+** Structure
+   Inside this json file there will be a table with two main keys.
+   @code jsonc
+   {
+     "plugnplay": {}, // for plugnplay config
+     "plugins": {}    // for plugins
+   }
+   @end
+
+*** Plugins Table
+    You install a plugin just with a `key/value` pair, where `key` is a name for the plugin and the
+    `value` is a location for the plugin. This can be one of the following:
+    - `"org/repo"`: A repository on github
+    - `"https://full_url.com"`: An url to a repo (for example gitlab)
+    - `"/Users/local_path"`: Points to a local directory
+    - `"~/my_plugin"`: A plugin somewhere in the home directory
+
+    This will then look like this:
     @code jsonc
-    {
-      "plugnplay": {}, // for plugnplay config
-      "plugins": {} // for plugins
+    "plugins": {
+      "impatient": "lewis6991/impatient.nvim"
     }
     @end
-  *** Plugins Table
-      You install a plugin just with a `key/value` pair, where `key` is a name for the plugin and the `value` is a location for the plugin.
-      This can be one of the following:
-      - `"org/repo"`: A repository on github
-      - `"https://full_url.com"`: An url to a repo (for example gitlab)
-      - `"/Users/local_path"`: Points to a local directory
-      - `"~/my_plugin"`: A plugin somewhere in the home directory
-      This will then look like this:
-      @code jsonc
-        "plugins": {
-          "impatient": "lewis6991/impatient.nvim"
-        }  
-      @end
-  *** Plugnplay table
+
+*** Plugnplay table
+    TODO
 
 * Plugins
-  Every plugin should have a `plugins.json` file. In this file there are setting with which the plugin can be automatically set up with the defaults.
-  The structure of the file is like this:
+  Every plugin should have a `plugins.json` file. In this file there are setting with which the
+  plugin can be automatically set up with the defaults. The structure of the file is like this:
   @code jsonc
-    {
-      "setup": {
-        "module": "module_name", // name of the module where the setup function is
-        "function": "function_name" // name of the setup function (defaults to `setup`)
-      },
+  {
+    "setup": {
+      "module": "module_name",    // name of the module where the setup function is
+      "function": "function_name" // name of the setup function (defaults to `setup`)
     }
+  }
   @end

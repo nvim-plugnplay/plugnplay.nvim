@@ -4,13 +4,13 @@
 
 # plugnplay.nvim
 
-### The the ultimative neovim plugin ecosystem
+### The ultimate Neovim plugin ecosystem
 
 </div>
 
-## ✨Planned Features 
+## ✨Planned Features
 - Install plugins easily
-- Configuration in a `.json` file
+- Configuration in a `.jsonc` file
 - Sane defaults for plugins
 - Automatically set up plugins by only giving a repo address
 - Automatically detect "dead" plugins
@@ -46,7 +46,7 @@ The structure of a config is like this:
     "plugnplay": {
         // Configuration for plugnplay goes here
     },
-    
+
     // Plugins we want to auto-configure
     "auto-config": [
         "neorg",

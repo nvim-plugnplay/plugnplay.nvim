@@ -12,11 +12,11 @@
         }
 
         Only "url" key is required, all other keys are optionals. You can take a look at
-        the valid keys in our documentation. Refer to ':h plugman-plugin-specs'
+        the valid keys in our documentation. Refer to ':h plugnplay-plugin-specs'
     */
 
-    "plugman": {
-        "url": "vhyrro/generic-neovim-plugin-manager",
+    "plugnplay": {
+        "url": "nvim-plugnplay/plugnplay.nvim",
         "opt": true,
         "configuration": {
             "database": "/some/location"

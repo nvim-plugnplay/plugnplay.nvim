@@ -4,60 +4,60 @@ local json = require("plugnplay.json")
 local helpers = require("plugnplay.helpers")
 
 local plugnplay = {
-    config = {
-        plugnplay = {
-            log = {},
-            lockfile = table.concat({ vim.fn.stdpath("config"), "pnp.lock.json" }, fs.system_separator),
-        },
-        plugins = {},
-    },
-    lockfile_content = "{}",
+   config = {
+      plugnplay = {
+         log = {},
+         lockfile = table.concat({ vim.fn.stdpath("config"), "pnp.lock.json" }, fs.system_separator),
+      },
+      plugins = {},
+   },
+   lockfile_content = "{}",
 }
 
 function plugnplay.read_plugins(location)
-    local content = fs.read_or_create(
-        location,
-        [[{
+   local content = fs.read_or_create(
+      location,
+      [[{
     // plugnplay configurations goes here
     "plugnplay": {},
     // your plugins goes here
     "plugins": {}
 }]]
-    )
+   )
 
-    return json.decode(content)
+   return json.decode(content)
 end
 
 function plugnplay.startup(config_location)
-    -- Make required plugnplay directories, e.g. '~/.cache/nvim/pnp'
-    fs.make_pnp_dirs()
+   -- Make required plugnplay directories, e.g. '~/.cache/nvim/pnp'
+   fs.make_pnp_dirs()
 
-    local location = config_location or table.concat({ vim.fn.stdpath("config"), "cfg.jsonc" }, fs.system_separator)
+   local location = config_location or table.concat({ vim.fn.stdpath("config"), "cfg.jsonc" }, fs.system_separator)
 
-    local decoded_json = plugnplay.read_plugins(location)
-    plugnplay.setup(decoded_json)
+   local decoded_json = plugnplay.read_plugins(location)
+   plugnplay.setup(decoded_json)
 end
 
 function plugnplay.setup(configuration)
-    plugnplay.config = vim.tbl_deep_extend("force", plugnplay.config, configuration or {})
+   plugnplay.config = vim.tbl_deep_extend("force", plugnplay.config, configuration or {})
 
-    log.new(plugnplay.config.plugnplay.log, true)
+   log.new(plugnplay.config.plugnplay.log, true)
 
-    -- Load the plugnplay lockfile
-    plugnplay.lockfile_content = fs.read_or_create(plugnplay.config.plugnplay.lockfile, "{}")
+   -- Load the plugnplay lockfile
+   plugnplay.lockfile_content = fs.read_or_create(plugnplay.config.plugnplay.lockfile, "{}")
 end
 
 ---Updates the lockfile
 ---@return table #The compiled json
 function plugnplay.compile()
-    local compiled = {}
+   local compiled = {}
 
-    for k, v in pairs(plugnplay.config) do
-        if k == "plugins" then
-            for plugin, data in pairs(v) do
-                if compiled[plugin] then
-                    vim.notify(
-                        vim.trim([[
+   for k, v in pairs(plugnplay.config) do
+      if k == "plugins" then
+         for plugin, data in pairs(v) do
+            if compiled[plugin] then
+               vim.notify(
+                  vim.trim([[
 [plugnplay] An error has occurred when parsing your plugins json file.
 Error message: Duplicate plugin found.
 
@@ -74,21 +74,21 @@ and give it a unique name. Only rename if the two plugins are different, otherwi
 plugin twice.
 Execute :messages to see the full output.
                     ]]):format(plugin, plugin),
-                        vim.log.levels.ERROR
-                    )
-                    return
-                end
+                  vim.log.levels.ERROR
+               )
+               return
+            end
 
-                if type(data) == "string" then
-                    compiled[plugin] = {
-                        url = data,
-                        commit = "",
-                        description = "",
-                    }
-                elseif type(data) == "table" then
-                    if not data.url then
-                        vim.notify(
-                            vim.trim([[
+            if type(data) == "string" then
+               compiled[plugin] = {
+                  url = data,
+                  commit = "",
+                  description = "",
+               }
+            elseif type(data) == "table" then
+               if not data.url then
+                  vim.notify(
+                     vim.trim([[
 [plugnplay] An error has occurred when parsing your plugins json file.
 Error message: No URL key provided.
 
@@ -124,15 +124,15 @@ If you start your "url" string with either "~" or "/" then plugnplay will consid
 
 Execute :messages to see the full output.
                         ]]):format(helpers.rep(plugin, 7)),
-                            vim.log.levels.ERROR
-                        )
-                        return
-                    end
+                     vim.log.levels.ERROR
+                  )
+                  return
+               end
 
-                    compiled[plugin] = data
-                else
-                    vim.notify(
-                        vim.trim([[
+               compiled[plugin] = data
+            else
+               vim.notify(
+                  vim.trim([[
 [plugnplay] An error has occurred when parsing your plugins json file.
 Error message: Wrong data type provided.
 
@@ -147,18 +147,18 @@ You gave plugnplay a value of type %s, but plugnplay only expects tables or stri
 
 Execute :messages to see the full output.
                     ]]):format(plugin, plugin, data, type(data)),
-                        vim.log.levels.ERROR
-                    )
-                    return
-                end
+                  vim.log.levels.ERROR
+               )
+               return
             end
-        end
-    end
+         end
+      end
+   end
 
-    -- Manually remove that weird vim.json.encode '/' escaping
-    local lockfile_content = json.encode(compiled):gsub("\\/", "/")
-    fs.write_file(plugnplay.config.plugnplay.lockfile, "w+", json.beautify(lockfile_content))
-    return compiled
+   -- Manually remove that weird vim.json.encode '/' escaping
+   local lockfile_content = json.encode(compiled):gsub("\\/", "/")
+   fs.write_file(plugnplay.config.plugnplay.lockfile, "w+", json.beautify(lockfile_content))
+   return compiled
 end
 
 function plugnplay.sync() end

@@ -1,12 +1,3 @@
-@document.meta
-	title: todo
-	description: 
-	author: vhyrro
-	categories: 
-	created: 2021-09-13
-	version: 0.1
-@end
-
 * Things that need to be done
  ** Operations
     When performing operations we should *always* work with the plugman.json.lock file, /not/ the `plugins.json` file.
@@ -34,13 +25,13 @@
         "plugman": {
             // Configuration for plugman goes here
         },
-        
+
         // Plugins we want to auto-configure
         "auto-config": [
             "neorg",
             "something-else"
         ],
-    
+
         // Similar to "auto-config" except we actually need to supply our own configuration
         "plugins": {
             "telescope.nvim": {
@@ -49,7 +40,7 @@
                 }
             }
         },
-    
+
         // For entries that are not present in our database
         "custom": {
             "something": "a/url", // The value can be simply a string

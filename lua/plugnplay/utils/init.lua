@@ -28,6 +28,9 @@ function utils.directory_name(url)
    return vim.fn.fnamemodify(url, ":t")
 end
 
+--- Parses a command with multiple options
+---@param command string E.g. NvimTree{Open,Close}
+---@return table Commands
 function utils.parse_command(command)
    local commands = {}
    if not command:find("{") then return { command } end

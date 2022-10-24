@@ -12,24 +12,81 @@
 
 *** Plugins Table
     You install a plugin just with a `key/value` pair, where `key` is a name for the plugin and the
-    `value` is a location for the plugin. This can be one of the following:
-    - `"org/repo"`: A repository on GitHub
-    - `"https://full_url.com"`: An url to a repo (for example GitLab)
-    - `"/Users/local_path"`: Points to a local directory
-    - `"~/my_plugin"`: A plugin somewhere in the home directory
+    `value` is a location for the plugin. Plugin location field is going to be explained below.
 
     This will then look like this:
     @code jsonc
     "plugins": {
-      "impatient": "lewis6991/impatient.nvim"
+      "impatient": "gh:lewis6991/impatient.nvim"
+    }
+    @end
+
+    There are some more options to configure your plugin. To use them you need to use a table
+    as a value for the plugin. /Notice that all the keys are optional except for `location`/.
+    @code jsonc
+    "plugins": {
+      "impatient": {
+        // URL where we should fetch the plugin from, this field can have the following values:
+        // - `gh:owner/name` - GitHub repository link
+        // - `gl:owner/name` - GitLab repository link
+        // - `git:link`      - Link to remote git repository
+        // - `ext:link`      - Link to an archive (replace `ext` with archive extension)
+        // - `loc:path`      - Path to a local plugin
+        "location": "gh:lewis6991/impatient.nvim",
+        // install specific plugin version (only valid for git sources)
+        "version": "0.1.0",
+        // install specific plugin branch (only valid for git sources)
+        "branch": "master",
+        // install specific plugin commit (only valid for git sources)
+        "commit": "dabda5",
+        // whether to restrict pnp from updating this plugin
+        "pin": true,
+        // lua string that gets runned when loading the plugin
+        //
+        // this option is invalid if `config_file` exists
+        "config": "require('impatient').setup()", 
+        // requires the file specified (`require"config.impatient"` will be executed)
+        // when the plugin gets loaded
+        //
+        // this option is invalid if `config` exists
+        "config_file": "config/impatient", 
+        // plugin lazy-loading options
+        "load": {
+          // load the plugin when one of the filetypes
+          "ft": ["lua", "markdown", "norg"],
+          // load the plugin when the specified plugin gets loaded
+          "with": "nvim-cmp",
+          // load the plugin when the map gets used (this can also be a table)
+          "maps": "<leader>x",
+          // load the plugin when one of the commands
+          // (start combined with each of the values inside {})
+          "cmd": "NvimTree{Toggle,Open,Close}",
+          // autocmd event on which the plugin gets loaded
+          "event": "InsertEnter",
+          // load the plugin when the specified lua module gets called
+          "mod": "impatient",
+          // load the plugin when a lua module that matches specified regex gets called
+          "mod_pattern": "impatient.*"
+        }
+      }
     }
     @end
 
 *** Plugnplay table
-    TODO
+    This section contains plugnplay's configuration.
+
+    @code jsonc
+    "plugnplay": {
+      // logger level to display messages. Level can be one of the following values:
+      // trace, debug, info, warn, error
+      "log_level": "info",
+      // local path where plugnplay is going to generate and look for its state lockfile
+      "lockfile": "/home/user/.config/nvim/pnp.lock.json"
+    }
+    @end
 
 * Plugins
-  Every plugin should have a `plugins.jsonc` file. In this file there are setting with which the
+  Every plugin should have a `plugin.jsonc` file. In this file there are setting with which the
   plugin can be automatically set up with the defaults. The structure of the file is like this:
   @code jsonc
   {

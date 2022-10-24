@@ -6,7 +6,7 @@ local helpers = require("plugnplay.helpers")
 local plugnplay = {
    config = {
       plugnplay = {
-         log = {},
+         log_level = "info",
          lockfile = table.concat({ vim.fn.stdpath("config"), "pnp.lock.json" }, fs.system_separator),
       },
       plugins = {},
@@ -43,7 +43,7 @@ end
 function plugnplay.setup(configuration)
    plugnplay.config = vim.tbl_deep_extend("force", plugnplay.config, configuration or {})
 
-   log.new(plugnplay.config.plugnplay.log, true)
+   log.new({ level = plugnplay.config.plugnplay.log_level }, true)
 
    -- Load the plugnplay lockfile
    plugnplay.lockfile_content = fs.read_or_create(plugnplay.config.plugnplay.lockfile, "{}")

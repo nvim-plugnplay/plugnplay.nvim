@@ -28,4 +28,14 @@ function utils.directory_name(url)
    return vim.fn.fnamemodify(url, ":t")
 end
 
+function utils.parse_command(command)
+   local commands = {}
+   if not command:find("{") then return { command } end
+   local options = vim.fn.split(command:match("{([%a,]+)}"), ",")
+   for _, option in ipairs(options) do
+      table.insert(commands, command:gsub("{([%a,]+)}", "") .. option)
+   end
+   return commands
+end
+
 return utils

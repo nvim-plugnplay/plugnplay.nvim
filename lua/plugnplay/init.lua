@@ -3,14 +3,30 @@ local log = require("plugnplay.external.log")
 local json = require("plugnplay.json")
 local helpers = require("plugnplay.helpers")
 
-local plugnplay = {
+---@class plugnplay
+local plugnplay = {}
+
+--- Plugnplay global state
+---@type table
+_G.pnp_state = {
+   ---@type table
    config = {
+      --- Plugnplay configuration
+      ---@type table
       plugnplay = {
+         --- Logging level, can be: trace, debug, info, warn, error
+         ---@type string
          log_level = "info",
+         --- Lockfile location, defaults to user's neovim configuration path
+         ---@type string
          lockfile = table.concat({ vim.fn.stdpath("config"), "pnp.lock.json" }, fs.system_separator),
       },
+      --- Plugins declaration
+      ---@type table
       plugins = {},
    },
+   --- Plugnplay lockfile contents
+   ---@type string
    lockfile_content = "{}",
 }
 
@@ -41,12 +57,12 @@ function plugnplay.startup(config_location)
 end
 
 function plugnplay.setup(configuration)
-   plugnplay.config = vim.tbl_deep_extend("force", plugnplay.config, configuration or {})
+   _G.pnp_state.config = vim.tbl_deep_extend("force", _G.pnp_state.config, configuration or {})
 
-   log.new({ level = plugnplay.config.plugnplay.log_level }, true)
+   log.new({ level = _G.pnp_state.config.plugnplay.log_level }, true)
 
    -- Load the plugnplay lockfile
-   plugnplay.lockfile_content = fs.read_or_create(plugnplay.config.plugnplay.lockfile, "{}")
+   plugnplay.lockfile_content = fs.read_or_create(_G.pnp_state.config.plugnplay.lockfile, "{}")
 end
 
 --- Updates the lockfile
@@ -54,7 +70,7 @@ end
 function plugnplay.compile()
    local compiled = {}
 
-   for k, v in pairs(plugnplay.config) do
+   for k, v in pairs(_G.pnp_state.config) do
       if k == "plugins" then
          for plugin, data in pairs(v) do
             if compiled[plugin] then
@@ -158,7 +174,7 @@ Execute :messages to see the full output.
    end
 
    local lockfile_content = json.encode(compiled)
-   fs.write_file(plugnplay.config.plugnplay.lockfile, "w+", json.beautify(lockfile_content))
+   fs.write_file(_G.pnp_state.config.plugnplay.lockfile, "w+", json.beautify(lockfile_content))
    return compiled
 end
 

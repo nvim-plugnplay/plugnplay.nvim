@@ -81,6 +81,7 @@
       // trace, debug, info, warn, error
       "log_level": "info",
       // local path where plugnplay is going to generate and look for its state lockfile
+      // defaults to user's neovim configuration directory
       "lockfile": "/home/user/.config/nvim/pnp.lock.json"
     }
     @end

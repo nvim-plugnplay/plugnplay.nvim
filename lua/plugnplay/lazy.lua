@@ -53,3 +53,4 @@ end
 for plugin, config in pairs(plugins) do
     lazy_load(plugin, config)
 end
+-- vim: sw=3:ts=3:sts=3

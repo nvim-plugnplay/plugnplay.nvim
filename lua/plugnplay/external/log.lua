@@ -164,3 +164,4 @@ log.new(default_config, true)
 -- }}}
 
 return log
+-- vim: sw=3:ts=3:sts=3

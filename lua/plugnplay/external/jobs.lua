@@ -83,3 +83,4 @@ jobs.stop = function()
 end
 
 return jobs
+-- vim: sw=3:ts=3:sts=3

@@ -256,3 +256,4 @@ end
 -- vim.notify_once(vim.inspect(test_encode()))
 
 return json
+-- vim: sw=3:ts=3:sts=3

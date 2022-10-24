@@ -42,3 +42,4 @@ function utils.parse_command(command)
 end
 
 return utils
+-- vim: sw=3:ts=3:sts=3

@@ -17,3 +17,4 @@ function git.exec(opts)
 end
 
 return git
+-- vim: sw=3:ts=3:sts=3

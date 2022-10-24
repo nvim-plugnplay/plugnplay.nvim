@@ -183,3 +183,4 @@ function plugnplay.sync()
 end
 
 return plugnplay
+-- vim: sw=3:ts=3:sts=3

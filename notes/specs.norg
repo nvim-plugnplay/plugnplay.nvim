@@ -86,14 +86,9 @@
     }
     @end
 
-* Plugins
-  Every plugin should have a `plugin.jsonc` file. In this file there are setting with which the
-  plugin can be automatically set up with the defaults. The structure of the file is like this:
-  @code jsonc
-  {
-    "setup": {
-      "module": "module_name",    // name of the module where the setup function is
-      "function": "function_name" // name of the setup function (defaults to `setup`)
-    }
-  }
-  @end
+* Rockspec
+  Plugnplay will have the ability to read a plugin's rockspec.
+  +TODO+
+
+* Modules
+  Modules provide a set of functionality to plugnplay.
